@@ -19,9 +19,15 @@
 #define vi vector<int>
 
 using namespace std;
+int check(int ar,int i,int j)
+{
+
+}
 
 void solve()
 {
+
+    vi v;
     ll n,m,l;
     cin>>n;
     vi v,k;
@@ -29,7 +35,10 @@ void solve()
     {
         cin>>v[i];
     }
-    
+    for(int i=0;i<n;i++)
+    {
+        
+    }
 }
 
 

@@ -2,6 +2,7 @@
 
 //F047_gunjan_agrawal
 //gunjan agrawal
+//insta id->_gunjan_agrawal_
 #define pi (3.141592653589)
 #define M 1e9+7
 #define ll long long int
@@ -11,7 +12,7 @@
 #define f first
 #define s second
 #define rrep(i, n) for(int i=n-1;i>=0;i--)
-#define rep(i,n) for(int i=0;i<n;i++)
+#define rep(i,a,b) for(int i=a;i<b;i++)
 #define repj(j,n) for(int j=0;j<n;j++)
 #define fast ios_base::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
 #define ps(x,y) fixed<<setprecision(y)<<x
@@ -19,28 +20,22 @@
 #define vi vector<int>
 
 using namespace std;
-int cut(int n)
-{
-    if (n<0){return -1244858;}
-    if(n==0){return 0;}
-    return (1+ max(cut(n-2),max(cut(n-3),cut(n-4))));
-}
 
 void solve()
 {
-    cout<<cut(7)<<endl;
+
 }
 
 
 int32_t main()
 {
-    fast
-    //cooldude69.
-    int t;
-    cin>>t;
-    while(t--)
-    {
-    solve();
-    }
-    return 0;
+  fast
+  //cooldude69.
+  int t;
+  cin>>t;
+  while(t--)
+  {
+  solve();
+  }
+  return 0;
 }

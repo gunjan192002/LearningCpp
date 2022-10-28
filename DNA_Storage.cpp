@@ -1,7 +1,5 @@
 #include <bits/stdc++.h>
 
-//F047_gunjan_agrawal
-//gunjan agrawal
 #define pi (3.141592653589)
 #define M 1e9+7
 #define ll long long int
