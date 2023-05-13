@@ -29,14 +29,15 @@
 
 using namespace std;
 
-
 void solve()
-{int n=10;
- vector<int>ans(n,0); 
- for(auto root:ans)
- {
-    cout<<root<<endl;
- }
+{
+    ll w,d,h;
+     cin>>w>>d>>h;
+     ll a,b,fi,g;
+     cin>>a>>b>>fi>>g;
+    ll ans;
+     ans=h+min(min(a,b),min(abs(w-a),abs(d-b)))+min(min(fi,g),min(abs(w-fi),abs(d-g)))+min(abs(fi-a),abs(g-b));
+     cout<<ans<<endl;
 }
 
 
@@ -44,7 +45,7 @@ int32_t main()
 {
     fast
     //cooldude69.
-    int t=1;
+    int t;
     cin>>t;
     while(t--)
     {

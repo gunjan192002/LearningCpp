@@ -29,14 +29,23 @@
 
 using namespace std;
 
-
 void solve()
-{int n=10;
- vector<int>ans(n,0); 
- for(auto root:ans)
- {
-    cout<<root<<endl;
+{
+ ll n;
+ cin>>n;int ar[n];int sum=0;
+ rep(i,0,n)
+ {  cin>>ar[i];
+    sum=sum^ar[i];
  }
+ 
+ if(n&1){cout<<"YES"<<endl;return;}
+ else 
+ {  
+    if(sum==0){cout<<"YES"<<endl;return;}
+    else cout<<"NO"<<endl;return;
+ }
+
+
 }
 
 
@@ -44,7 +53,7 @@ int32_t main()
 {
     fast
     //cooldude69.
-    int t=1;
+    int t;
     cin>>t;
     while(t--)
     {

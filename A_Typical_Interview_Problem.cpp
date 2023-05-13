@@ -29,14 +29,26 @@
 
 using namespace std;
 
-
 void solve()
-{int n=10;
- vector<int>ans(n,0); 
- for(auto root:ans)
- {
-    cout<<root<<endl;
- }
+{
+  int n;
+  cin>>n;
+stirng s;
+ cin>>s;
+ int begin=1;
+if(s[0]=='F'&&)
+{
+
+}
+  for(int i=1;i<n;i++)
+  {
+    if(s[i]=='B'&&s[i-1]=='B')
+    {
+        cout<<"NO"<<endl;
+    }
+
+  }
+  cout<<"YES"<<endl;
 }
 
 
@@ -44,7 +56,7 @@ int32_t main()
 {
     fast
     //cooldude69.
-    int t=1;
+    int t;
     cin>>t;
     while(t--)
     {

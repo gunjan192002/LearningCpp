@@ -28,15 +28,40 @@
 #define vi vector<int>
 
 using namespace std;
-
+int reverseDigits(int num)
+{
+    int rev_num = 0;
+    while (num > 0) {
+        rev_num = rev_num * 10 + num % 10;
+        num = num / 10;
+    }
+    return rev_num;
+}
+ 
 
 void solve()
-{int n=10;
- vector<int>ans(n,0); 
- for(auto root:ans)
- {
-    cout<<root<<endl;
- }
+{
+int n;
+cin >>n;                         
+  
+  string x,y;;
+     while(n!=0)
+     {  int z=n%10;
+     if(z&1)
+     
+       { x=x+(z-1)/2;y=y*i+(z+1)/2;
+        n=n/10;
+        }
+        else 
+        {
+            x=x*i+(z)/2;y=y*i+(z)/2;
+        n=n/10;
+        
+        }
+     }
+    cout<<reverseDigits(x)<<" "<<reverseDigits(y)<<endl;
+
+  
 }
 
 
@@ -44,11 +69,12 @@ int32_t main()
 {
     fast
     //cooldude69.
-    int t=1;
+    int t;
     cin>>t;
     while(t--)
     {
     solve();
     }
+    cout<<reverseDigits(1000)<<endl;
     return 0;
-}
+} 

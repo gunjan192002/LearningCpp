@@ -1,13 +1,5 @@
-//#include <bits/stdc++.h>
+#include <bits/stdc++.h>
 
-#include <vector>
-#include <map>
-#include <algorithm>
-#include <math.h>
-#include <stack>
-#include <queue>
-#include <set>
-#include <iostream>
 //F047_gunjan_agrawal
 //gunjan agrawal
 //insta id->_gunjan_agrawal_
@@ -28,15 +20,21 @@
 #define vi vector<int>
 
 using namespace std;
-
-
+//n/k
 void solve()
-{int n=10;
- vector<int>ans(n,0); 
- for(auto root:ans)
- {
-    cout<<root<<endl;
- }
+{
+  int n,k;
+  cin>>n>>k;
+
+  int temp;
+  temp=k/n;
+  int ans=k+temp;
+  while(temp!=ans/n)
+  {    int  temp0=temp;
+        temp=ans/n;
+        ans=ans+temp-temp0;
+  }
+  cout<<ans<<endl;
 }
 
 
@@ -44,7 +42,7 @@ int32_t main()
 {
     fast
     //cooldude69.
-    int t=1;
+    int t;
     cin>>t;
     while(t--)
     {

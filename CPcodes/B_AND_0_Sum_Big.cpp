@@ -1,13 +1,5 @@
-//#include <bits/stdc++.h>
+#include <bits/stdc++.h>
 
-#include <vector>
-#include <map>
-#include <algorithm>
-#include <math.h>
-#include <stack>
-#include <queue>
-#include <set>
-#include <iostream>
 //F047_gunjan_agrawal
 //gunjan agrawal
 //insta id->_gunjan_agrawal_
@@ -28,15 +20,13 @@
 #define vi vector<int>
 
 using namespace std;
-
-
+ll mood=M;
 void solve()
-{int n=10;
- vector<int>ans(n,0); 
- for(auto root:ans)
- {
-    cout<<root<<endl;
- }
+{
+int n, k; cin >> n >> k;
+      ll ans = 1;
+      for (int i = 0; i < k; i++) ans *= n, ans %= mood;
+      cout << ans << endl;
 }
 
 
@@ -44,7 +34,7 @@ int32_t main()
 {
     fast
     //cooldude69.
-    int t=1;
+    int t;
     cin>>t;
     while(t--)
     {

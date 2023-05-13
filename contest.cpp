@@ -29,14 +29,50 @@
 
 using namespace std;
 
-
 void solve()
-{int n=10;
- vector<int>ans(n,0); 
- for(auto root:ans)
- {
-    cout<<root<<endl;
- }
+{
+    ll n;
+     cin>>n; 
+     ll arr[n];
+     
+     rep(i,0,n)
+     {
+        cin>>arr[i];
+     }
+     int rem=0;
+     int ans=0;
+     int currpur=0;
+     int lastel=-1;int two=0;
+     rep(i,0,n)
+     {
+        if(arr[i]==2)
+        {   two++;
+            if(lastel==-1||lastel==2)
+            {   
+                lastel=2;
+                continue;
+            }
+            else 
+            {   
+                int docrec=(currpur/2) +1;
+                ans=ans +docrec-rem;
+                rem=currpur-docrec;
+                lastel=2;
+                currpur=0;
+            }
+        }
+        if(arr[i]==1)
+        {
+            currpur++;
+            lastel=1;
+
+        }
+     }
+     if(two==0)
+     {
+        cout<<currpur<<endl;return;
+     }
+     cout<<ans+rem<<endl;
 }
 
 
@@ -44,7 +80,7 @@ int32_t main()
 {
     fast
     //cooldude69.
-    int t=1;
+    int t;
     cin>>t;
     while(t--)
     {

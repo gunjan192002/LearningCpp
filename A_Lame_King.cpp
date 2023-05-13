@@ -29,14 +29,10 @@
 
 using namespace std;
 
-
 void solve()
-{int n=10;
- vector<int>ans(n,0); 
- for(auto root:ans)
- {
-    cout<<root<<endl;
- }
+{
+ 
+
 }
 
 
@@ -44,11 +40,7 @@ int32_t main()
 {
     fast
     //cooldude69.
-    int t=1;
-    cin>>t;
-    while(t--)
-    {
-    solve();
-    }
+    char i=char(32);
+    cout<<"a"<<i<<"b"<<endl;
     return 0;
 }

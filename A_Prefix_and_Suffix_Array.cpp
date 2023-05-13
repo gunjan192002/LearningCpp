@@ -28,15 +28,34 @@
 #define vi vector<int>
 
 using namespace std;
+bool ismirror(string a,string b,int n)
+{
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]!=b[n-1-i])return false;
+        else continue;
 
-
+    }
+    return true;
+}
 void solve()
-{int n=10;
- vector<int>ans(n,0); 
- for(auto root:ans)
- {
-    cout<<root<<endl;
- }
+{
+ ll n ;
+  cin>>n;
+  map<int,vector<string>>mp;
+   for(ll i=0;i<2*n-2;i++)
+   {
+      string x;
+       cin>>x;
+       mp[x.length()].push_back(x);
+   }
+   
+    for(auto i:mp)
+    {
+        bool flag=ismirror(i.second[0],i.second[1],i.first);
+      {  if(flag==false){cout<<"NO"<<endl;return;}}
+    }
+    cout<<"YES"<<endl;
 }
 
 
@@ -44,7 +63,7 @@ int32_t main()
 {
     fast
     //cooldude69.
-    int t=1;
+    int t;
     cin>>t;
     while(t--)
     {

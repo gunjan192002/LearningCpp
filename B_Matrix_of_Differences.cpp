@@ -29,14 +29,49 @@
 
 using namespace std;
 
-
 void solve()
-{int n=10;
- vector<int>ans(n,0); 
- for(auto root:ans)
- {
-    cout<<root<<endl;
- }
+{
+    ll n;
+     cin>>n;
+     ll arr[n*n-1];
+     for(ll i=0;i<(n*n)/2;i++)
+     {
+        arr[2*i]=n*n-i;
+        arr[2*i+1]=i+1;
+     }
+     if(n&1)
+     {
+        arr[n*n-1]=n*n/2 +1;
+     }
+   
+   ll ans[n][n];
+   for(int i=0;i<n;i++)
+   {
+    //ltr
+    if(!(i&1))
+    {
+        for(int j=0;j<n;j++)
+        {
+            ans[i][j]=arr[i*(n)+j];
+        }
+    }
+    //rtl
+    else 
+    {
+          for(int j=n-1;j>=0;j--)
+        {
+            ans[i][j]=arr[i*(n)+n-j-1];
+        }
+    }
+   }
+   rep(i,0,n)
+   {
+    rep(j,0,n)
+    {
+        cout<<ans[i][j]<<" ";
+    }
+    cout<<endl;
+   }
 }
 
 
@@ -44,7 +79,7 @@ int32_t main()
 {
     fast
     //cooldude69.
-    int t=1;
+    int t;
     cin>>t;
     while(t--)
     {

@@ -1,13 +1,5 @@
-//#include <bits/stdc++.h>
+ #include <bits/stdc++.h>
 
-#include <vector>
-#include <map>
-#include <algorithm>
-#include <math.h>
-#include <stack>
-#include <queue>
-#include <set>
-#include <iostream>
 //F047_gunjan_agrawal
 //gunjan agrawal
 //insta id->_gunjan_agrawal_
@@ -29,26 +21,36 @@
 
 using namespace std;
 
-
-void solve()
-{int n=10;
- vector<int>ans(n,0); 
- for(auto root:ans)
- {
-    cout<<root<<endl;
- }
+int bs(vector<int>ar,int x)
+{
+      int i=0;
+      int end=ar.size()-1;
+      int  mid=(end+i)/2;
+      while(i<=end)
+      {   
+        if(ar[mid]==x)
+      {
+        return mid;
+      }
+        else if(ar[mid]<x)
+         {
+            i=mid+1;
+         }
+         else 
+         {
+            end=mid-1;
+         }
+         mid=i+((end-i)/2);
+      }
+      return -1;
 }
-
-
+ 
 int32_t main()
 {
     fast
     //cooldude69.
-    int t=1;
-    cin>>t;
-    while(t--)
-    {
-    solve();
-    }
+ vector<int>ar{0,0,0,0};
+ int x=0;
+   cout<<bs(ar,0,ar.size()-1,x);
     return 0;
-}
+}       f

@@ -29,26 +29,16 @@
 
 using namespace std;
 
-
 void solve()
-{int n=10;
- vector<int>ans(n,0); 
- for(auto root:ans)
- {
-    cout<<root<<endl;
- }
+{
+    i am ambuj jaiswal
+    i am gunjan agarwal
 }
 
 
 int32_t main()
 {
-    fast
-    //cooldude69.
-    int t=1;
-    cin>>t;
-    while(t--)
-    {
-    solve();
-    }
-    return 0;
+   vector<int>a(int a[],int n);
+   
+   cout<<a.size()<< " " <<a[0]<<endl;
 }

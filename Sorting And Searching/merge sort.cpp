@@ -28,27 +28,32 @@
 #define vi vector<int>
 
 using namespace std;
-
-
-void solve()
-{int n=10;
- vector<int>ans(n,0); 
- for(auto root:ans)
- {
-    cout<<root<<endl;
- }
+void conq(int &ar[],int si,int e)
+{
+    int mergerd[e-si+1];
+    int indx1=si;
+   int  indx1=mid+1;
+     int x=0;
+    
+} 
+void divide(int &ar[],int si,int e)
+{
+    if(si>=e)
+    {
+        return;
+    }
+    int mid=s-(e-s)/2;
+    divide(ar,si,mid);
+    divide(ar,mid+1,e);
+    conq(ar,si,mid)
 }
+
 
 
 int32_t main()
 {
     fast
-    //cooldude69.
-    int t=1;
-    cin>>t;
-    while(t--)
-    {
-    solve();
-    }
+    int ar[10]={1,2,3,4,5,6,5};
+    divide(ar,0,9)
     return 0;
 }

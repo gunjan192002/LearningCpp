@@ -1,13 +1,9 @@
-//#include <bits/stdc++.h>
-
-#include <vector>
-#include <map>
-#include <algorithm>
-#include <math.h>
-#include <stack>
-#include <queue>
-#include <set>
 #include <iostream>
+#include <vector>
+#include<algorithm>
+#include <map>
+ #include<math.h>
+
 //F047_gunjan_agrawal
 //gunjan agrawal
 //insta id->_gunjan_agrawal_
@@ -29,14 +25,16 @@
 
 using namespace std;
 
-
 void solve()
-{int n=10;
- vector<int>ans(n,0); 
- for(auto root:ans)
- {
-    cout<<root<<endl;
- }
+{
+    ll n; cin>>n;
+    ll min=pow(2,1000),max=0;;min=min^0;
+    rep(i,0,n)
+    {    int x;cin>>x;
+        min=min&x;
+        max=max|x;}
+    // } cout<<min<<" "<<max<<" "<<endl;
+    cout<<max-min<<endl;
 }
 
 
@@ -44,7 +42,7 @@ int32_t main()
 {
     fast
     //cooldude69.
-    int t=1;
+    int t;
     cin>>t;
     while(t--)
     {

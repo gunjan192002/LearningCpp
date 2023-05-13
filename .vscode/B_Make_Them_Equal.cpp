@@ -1,13 +1,5 @@
-//#include <bits/stdc++.h>
+#include <bits/stdc++.h>
 
-#include <vector>
-#include <map>
-#include <algorithm>
-#include <math.h>
-#include <stack>
-#include <queue>
-#include <set>
-#include <iostream>
 //F047_gunjan_agrawal
 //gunjan agrawal
 //insta id->_gunjan_agrawal_
@@ -29,26 +21,58 @@
 
 using namespace std;
 
-
 void solve()
-{int n=10;
- vector<int>ans(n,0); 
- for(auto root:ans)
- {
-    cout<<root<<endl;
- }
+{
+ int n;
+  cin>>n;
+   set<int>mp;
+   rep(i,0,n)
+   {
+    int x;
+     cin>>x;
+        mp.insert(x);
+   }
+
+   if(mp.size()>3)
+   {
+    cout<<-1<<endl;
+    return;
+   }
+    if(mp.size()==1)
+    {
+        cout<<0<<endl;return;
+    }
+    int ar[3]; int j=0;
+    for(auto i:mp)
+    {
+        ar[j]=i;
+        j++;
+    }
+    if(mp.size()==2)
+    {    
+        cout<<ar[1]-ar[2]<<endl;return;
+    }
+    if(mp.size()==3)
+    {  
+        if(ar[0]+ar[2]==2*ar[1])
+        {
+            cout<<ar[1]-ar[0]<<endl;return;
+        }
+        else
+    {
+        cout<<-1<<endl;
+    return;
+    }
+    }
+   
 }
 
 
 int32_t main()
 {
     fast
-    //cooldude69.
-    int t=1;
-    cin>>t;
-    while(t--)
-    {
+   
     solve();
-    }
+    
     return 0;
 }

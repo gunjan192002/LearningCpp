@@ -29,14 +29,23 @@
 
 using namespace std;
 
-
 void solve()
-{int n=10;
- vector<int>ans(n,0); 
- for(auto root:ans)
- {
-    cout<<root<<endl;
- }
+{   
+    ll arr[4];
+    rep(i,0,4)
+    {
+        cin>>arr[i];
+    }
+     ll mid=min(arr[1],arr[2]);
+    ll last =min(arr[0]+1,abs(arr[1]-arr[2])+arr[3]);
+  
+    if(arr[0]==0)
+    {
+        cout<<1<<endl;return;
+    }
+    
+    ll ans=2*mid +arr[0]+last;
+    cout<<ans<<endl;
 }
 
 
@@ -44,7 +53,7 @@ int32_t main()
 {
     fast
     //cooldude69.
-    int t=1;
+    int t;
     cin>>t;
     while(t--)
     {

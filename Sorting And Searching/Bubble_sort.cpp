@@ -1,13 +1,6 @@
-//#include <bits/stdc++.h>
 
-#include <vector>
-#include <map>
-#include <algorithm>
-#include <math.h>
-#include <stack>
-#include <queue>
-#include <set>
-#include <iostream>
+#include <bits/stdc++.h>
+
 //F047_gunjan_agrawal
 //gunjan agrawal
 //insta id->_gunjan_agrawal_
@@ -28,27 +21,38 @@
 #define vi vector<int>
 
 using namespace std;
-
+void bs(int ar[],int n)
+{
+    rep(i,1,n)
+    {
+        for(int j=0;j<n-i;j++)
+        {
+            if(ar[j]>ar[j+1])
+            {
+                swap(ar[j],ar[j+1]);
+            }
+        }
+    }
+    rep(i,0,n)
+    {
+        cout<<ar[i]<<" ";
+    }
+    cout<<endl;
+}
 
 void solve()
-{int n=10;
- vector<int>ans(n,0); 
- for(auto root:ans)
- {
-    cout<<root<<endl;
- }
+{  
+    int ar[]={9,8,4,5,6};
+    int n=5;
+    bs(ar,n);
+
 }
 
 
 int32_t main()
 {
-    fast
-    //cooldude69.
-    int t=1;
-    cin>>t;
-    while(t--)
-    {
+    
     solve();
-    }
+    
     return 0;
 }

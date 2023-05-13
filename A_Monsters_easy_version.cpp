@@ -29,14 +29,40 @@
 
 using namespace std;
 
-
 void solve()
-{int n=10;
- vector<int>ans(n,0); 
- for(auto root:ans)
- {
-    cout<<root<<endl;
- }
+{
+    ll n;
+     cin>>n;
+        map<int,int>mp;
+      rep(i,0,n)
+      {
+        int x;
+        cin>>x;
+        mp[x]++;
+
+      }
+      ll last =1;
+      ll ans=0;
+    for(auto i:mp)
+    {
+        if(i.first!=last)
+        {
+            while(last!=i.first&&i.second!=0)
+            {
+                ans=ans +i.first-last;
+                i.second--;last++;
+               
+            }
+                if(last==i.first&&i.second!=0)
+                {
+                    last++;
+                }
+            continue;
+        }
+
+        last++;
+    }
+    cout<<ans<<endl;
 }
 
 
@@ -44,7 +70,7 @@ int32_t main()
 {
     fast
     //cooldude69.
-    int t=1;
+    int t;
     cin>>t;
     while(t--)
     {

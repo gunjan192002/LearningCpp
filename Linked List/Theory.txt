@@ -1,0 +1,5 @@
+ Advabtage
+ 1.Memory is not wasted but extra memory is consumed as it also uses pointers to 
+keep track of the next successive node.
+2.Linked Lists are mostly used because of their effective insertion and deletion.
+3.

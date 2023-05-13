@@ -29,14 +29,26 @@
 
 using namespace std;
 
-
 void solve()
-{int n=10;
- vector<int>ans(n,0); 
- for(auto root:ans)
- {
-    cout<<root<<endl;
- }
+{
+    ll n,m;
+    cin>>n>>m;ll x,sum=0,y;
+   ll ar[n],op[m];
+   priority_queue <int, vector<int>, greater<int> > pq;
+    rep(i,0,n)
+    {   
+        cin>>x;sum=sum+x;
+        pq.push(x);
+    }
+    rep(i,0,m)
+    {
+       cin>>op[i];
+       y= pq.top();
+       pq.pop();
+       pq.push(op[i]);
+       sum=sum+op[i]-y;
+    }
+    cout<<sum<<endl;
 }
 
 
@@ -44,7 +56,7 @@ int32_t main()
 {
     fast
     //cooldude69.
-    int t=1;
+    int t;
     cin>>t;
     while(t--)
     {

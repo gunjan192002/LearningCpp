@@ -1,13 +1,5 @@
-//#include <bits/stdc++.h>
+#include <bits/stdc++.h>
 
-#include <vector>
-#include <map>
-#include <algorithm>
-#include <math.h>
-#include <stack>
-#include <queue>
-#include <set>
-#include <iostream>
 //F047_gunjan_agrawal
 //gunjan agrawal
 //insta id->_gunjan_agrawal_
@@ -29,14 +21,36 @@
 
 using namespace std;
 
-
 void solve()
-{int n=10;
- vector<int>ans(n,0); 
- for(auto root:ans)
- {
-    cout<<root<<endl;
- }
+{
+    ll n,k;
+    if(k>n)
+    {
+        cout<<0;return;
+    }
+    if(k=n)
+    {
+        cout<<n%10;return;
+    }
+    else 
+    {
+
+    ll z=n/k;
+    ll y=z%10;
+    ll w=z/10;
+    ll sum10=0,sumy=0;
+    for(int i=1;i<=y &&i<=10;i++)
+    {   ll x=(k*i)/10;
+        if(i<=z)
+        {
+            sumy+=x;
+        }
+        sum10+=x;
+    }
+        cout<<w*sum10 + sumy<<endl;;
+    }
+    
+
 }
 
 
@@ -44,7 +58,7 @@ int32_t main()
 {
     fast
     //cooldude69.
-    int t=1;
+    int t;
     cin>>t;
     while(t--)
     {

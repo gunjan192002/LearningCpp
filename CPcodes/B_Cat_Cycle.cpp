@@ -1,13 +1,5 @@
-//#include <bits/stdc++.h>
+#include <bits/stdc++.h>
 
-#include <vector>
-#include <map>
-#include <algorithm>
-#include <math.h>
-#include <stack>
-#include <queue>
-#include <set>
-#include <iostream>
 //F047_gunjan_agrawal
 //gunjan agrawal
 //insta id->_gunjan_agrawal_
@@ -29,14 +21,20 @@
 
 using namespace std;
 
-
 void solve()
-{int n=10;
- vector<int>ans(n,0); 
- for(auto root:ans)
- {
-    cout<<root<<endl;
- }
+{int n, k;
+	cin >> n >> k;
+	if(n % 2){
+		int a = (n+1)/2;
+		int d = n/2;
+		int e = (k-a)/d + 1;
+		if(k < a) e = 0;
+		k += e;
+	}
+	int x = k % n;
+	if(x == 0) x = n;
+	cout << x << endl;
+
 }
 
 
@@ -44,7 +42,7 @@ int32_t main()
 {
     fast
     //cooldude69.
-    int t=1;
+    int t;
     cin>>t;
     while(t--)
     {

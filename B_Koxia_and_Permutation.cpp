@@ -29,14 +29,37 @@
 
 using namespace std;
 
-
 void solve()
-{int n=10;
- vector<int>ans(n,0); 
- for(auto root:ans)
- {
-    cout<<root<<endl;
- }
+{
+ int n,k;
+ cin>>n>>k;
+  if(k==1)
+  {
+    for(int i=1;i<=n;i++)
+    {
+        cout<<i<<" ";
+    }
+    cout<<endl;
+  }
+  else 
+  {
+     ll arr[n];
+     for(ll i=0;i<n/2;i++)
+     {
+        arr[2*i]=n-i;
+        arr[2*i+1]=i+1;
+     }
+     if(n&1)
+     {
+        arr[n-1]=n/2+1;
+     }
+     
+      rep(i,0,n)
+    {
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+  }
 }
 
 
@@ -44,7 +67,7 @@ int32_t main()
 {
     fast
     //cooldude69.
-    int t=1;
+    int t;
     cin>>t;
     while(t--)
     {

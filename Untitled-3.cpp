@@ -1,5 +1,3 @@
-//#include <bits/stdc++.h>
-
 #include <vector>
 #include <map>
 #include <algorithm>
@@ -8,6 +6,7 @@
 #include <queue>
 #include <set>
 #include <iostream>
+
 //F047_gunjan_agrawal
 //gunjan agrawal
 //insta id->_gunjan_agrawal_
@@ -29,26 +28,22 @@
 
 using namespace std;
 
+bool ismirror(string a,string b,int n)
+{
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]!=b[n-1-i])return false;
+        else continue;
 
-void solve()
-{int n=10;
- vector<int>ans(n,0); 
- for(auto root:ans)
- {
-    cout<<root<<endl;
- }
+    }
+    return true;
 }
 
 
 int32_t main()
 {
-    fast
-    //cooldude69.
-    int t=1;
-    cin>>t;
-    while(t--)
-    {
-    solve();
-    }
+    fast string a="gun",b="nug";
+   cout<<ismirror(a,b,3);
+
     return 0;
 }
