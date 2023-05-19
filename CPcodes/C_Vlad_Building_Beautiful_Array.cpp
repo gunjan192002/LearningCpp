@@ -1,9 +1,7 @@
-//F047_gunjan_agrawal
-//gunjan agrawal
+// _GUNJAN_AGRAWAL_ 
 //insta id->_gunjan_agrawal_
-// header files
-//#include <bits/stdc++.h>
-
+//Leetcode-> https://leetcode.com/gunjan192002/
+//LinekdIN->https://www.linkedin.com/in/gunjan-agrawal-537929229/
 #include <vector>
 #include <map>
 #include <algorithm>
@@ -38,14 +36,34 @@
 #define ps(x,y) fixed<<setprecision(y)<<x
 #define pii pair<int,int>
 #define vi vector<int>
-
+using namespace std;
 ll gcd(ll a, ll b){if (b == 0)return a;return gcd(b, a % b);} //__gcd 
 ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
-using namespace std;
 
 void solve()
 {
-
+    int n;
+    cin>>n;
+    //vector<int> arr(n);
+    int odd=0;int k=INT_MAX;
+    rep(i,0,n)
+    {
+        int x;cin>>x;
+        k=min(x,k);
+        if(x&1)
+        {
+            odd=1;
+        }
+    }
+    if(odd==0){cout<<"YES"<<endl;return;}
+    else 
+    {
+        if(k&1){cout<<"YES"<<endl;return;}
+        else 
+        {
+            cout<<"NO"<<endl;
+        }
+    }
 }
 
 
@@ -53,8 +71,11 @@ int32_t main()
 {
     fast
     //_GUNJAN_AGRAWAL_
-    cout<<"hello";
-    int i=8,j=9;
-    cout<<i^j;
-
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
+    return 0;
 }

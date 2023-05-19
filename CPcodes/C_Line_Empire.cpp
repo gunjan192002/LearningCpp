@@ -44,8 +44,27 @@ ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
 using namespace std;
 
 void solve()
-{
 
+{
+    ll n,a,b; cin>>n>>a>>b;vector<ll> arr(n+1);
+    arr[0]=0;
+    rep(i,0,n)
+    {
+        cin>>arr[i+1];
+    }
+    ll ans=1e18+8;
+    //cout<<ans<<endl;
+    ll sum=(a+b)*(arr[n]);//cout<<sum<<endl;
+    ll j=1;
+    for(int i=n-1;i>=0;i--)
+    {
+            
+            sum=sum+(b*(j-1)-a)*((arr[i+1]-arr[i]));
+            
+            ans=min(ans,sum);
+            j++;
+    }
+    cout<<ans<<endl;
 }
 
 
@@ -53,8 +72,11 @@ int32_t main()
 {
     fast
     //_GUNJAN_AGRAWAL_
-    cout<<"hello";
-    int i=8,j=9;
-    cout<<i^j;
-
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
+    return 0;
 }

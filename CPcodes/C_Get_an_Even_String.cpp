@@ -45,16 +45,35 @@ using namespace std;
 
 void solve()
 {
-
+    string st;
+    cin>>st;
+    //cout<<st.size()<<endl;
+    vector<bool>arr(26,false);
+    int ans=0;
+    rep(i,0,st.size())
+    {
+        if(arr[st[i]-'a']==false )
+        {
+            arr[st[i]-'a']=true;
+        }
+        else 
+        {
+            ans++;
+           for(auto i:arr){i=false;}
+        }
 }
-
-
+   //cout<<ans<<endl;//<<"  "<<st.size();
+   cout<<st.size()-(2*ans)<<endl;
+}
 int32_t main()
 {
     fast
     //_GUNJAN_AGRAWAL_
-    cout<<"hello";
-    int i=8,j=9;
-    cout<<i^j;
-
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
+    return 0;
 }

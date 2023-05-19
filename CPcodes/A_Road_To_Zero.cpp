@@ -45,7 +45,23 @@ using namespace std;
 
 void solve()
 {
-
+    ll x,y;
+     cin>>x>>y;
+     ll a,b;
+     cin>>a>>b;
+    //cout<<x<<y<<endl;
+     // I am treating zero as positive number here 
+        if((x>=0&&y>=0)||(y<0&&x<0))
+        {   
+              x=abs(x);
+              y=abs(y);
+            ll ans =((abs(x-y)*a)+(min(x,y)*b));
+            cout<<ans<<endl;return;
+        }
+        else 
+        {
+            cout<<(abs(x)+abs(y))*a<<endl;
+        }
 }
 
 
@@ -53,8 +69,11 @@ int32_t main()
 {
     fast
     //_GUNJAN_AGRAWAL_
-    cout<<"hello";
-    int i=8,j=9;
-    cout<<i^j;
-
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
+    return 0;
 }

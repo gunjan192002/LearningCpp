@@ -42,10 +42,49 @@
 ll gcd(ll a, ll b){if (b == 0)return a;return gcd(b, a % b);} //__gcd 
 ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
 using namespace std;
-
+// I got to travel trhough the matrix 
 void solve()
 {
-
+    // I have to search for two concecutive zero in the matrix  and it is only the way what I can do what I want to do
+    int n,m; 
+    cin>>n>>m; 
+    string arr[n];
+    int cnt=0;
+    rep(i,0,n)
+    {
+       cin>>arr[i];
+    }
+    rep(i,0,n)
+    {
+       rep(j,0,m)
+       {
+        if(arr[i][j]=='1'){cnt++;}
+       }
+    }
+    //cout<<cnt;
+    if(cnt==(n*m)){cout<<cnt-2<<endl;return;}
+    int dx[]={-1,-1,-1,0,0,1,1,1};
+    int dy[]={-1,0,1,-1,1,-1,0,1};
+    rep(i,0,n)
+    {
+        rep(j,0,m)
+        {
+            if(arr[i][j]=='0')
+            {
+               
+                for(int d=0;d<8;d++)
+                {
+                        int x=i+dx[d];
+                        int y=j+dy[d];
+                        if(x>=0 && y>=0 && x<n && y<m && arr[x][y]=='0')
+                        {
+                           cout<<cnt<<endl;return;
+                        }
+                }
+            }
+        }
+    }
+    cout<<cnt-1<<endl;
 }
 
 
@@ -53,8 +92,11 @@ int32_t main()
 {
     fast
     //_GUNJAN_AGRAWAL_
-    cout<<"hello";
-    int i=8,j=9;
-    cout<<i^j;
-
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
+    return 0;
 }

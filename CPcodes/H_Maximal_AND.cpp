@@ -42,10 +42,41 @@
 ll gcd(ll a, ll b){if (b == 0)return a;return gcd(b, a % b);} //__gcd 
 ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
 using namespace std;
-
+void update(ll x,vector<ll> &vec)
+{   int i=0;
+    while(x!=0)
+    {
+        if(x&1)
+        {
+            vec[i]--;
+        }
+        x=x>>1;
+        i++;
+    }
+}
 void solve()
 {
-
+    ll n,k;
+     cin>>n>>k;
+     ll mans=pow(2,31)-1;
+     vector<ll> vec(31,n);
+     rep(i,0,n)
+     {
+        ll x;
+         cin>>x;
+        mans=mans&x;
+        update(x,vec);
+     }
+    rrep(i,31)
+    {
+        if(k-vec[i]>=0)
+        {
+            k=k-vec[i];
+            ll z=pow(2,i);
+            mans=mans|z;
+        }
+    }
+    cout<<mans<<endl;
 }
 
 
@@ -53,8 +84,11 @@ int32_t main()
 {
     fast
     //_GUNJAN_AGRAWAL_
-    cout<<"hello";
-    int i=8,j=9;
-    cout<<i^j;
-
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
+    return 0;
 }

@@ -45,7 +45,24 @@ using namespace std;
 
 void solve()
 {
-
+    int n; 
+    cin>>n;
+    ll ans=1e18+8;
+    vi arr(n);rep(i,0,n){cin>>arr[i];}
+     for(int i=0;i<n;i++)
+     {
+        ll sum;
+        for(int j=i+1;j<n;j++)
+        {
+            if(arr[j]<=arr[j-1]){sum=sum+(((arr[j-1]-arr[j])/arr[j])+1);}
+        }
+        for(int j=i-1;j>=0;j--)
+        {
+            if(arr[j]>=arr[j-1]){sum=sum+(arr[j]-arr[j-1]+1);}
+        }
+        ans=min(ans,sum);
+     }
+     cout<<ans<<endl;
 }
 
 
@@ -53,8 +70,11 @@ int32_t main()
 {
     fast
     //_GUNJAN_AGRAWAL_
-    cout<<"hello";
-    int i=8,j=9;
-    cout<<i^j;
-
+    int t;
+    t=1;
+    while(t--)
+    {
+    solve();
+    }
+    return 0;
 }

@@ -45,7 +45,21 @@ using namespace std;
 
 void solve()
 {
-
+    // duplicates h toh icrease the answer by 1
+    map<int,int>mp;
+    int n;
+     cin>>n;
+     rep(i,0,n)
+     {
+        inint(x);
+        mp[x]++;
+     }
+     ll count=0;
+      for(auto i:mp)
+      {
+        if(i.second==1)count++;
+      }
+      cout<< ceil(count/2.0)+(mp.size()-count)<<endl;
 }
 
 
@@ -53,8 +67,11 @@ int32_t main()
 {
     fast
     //_GUNJAN_AGRAWAL_
-    cout<<"hello";
-    int i=8,j=9;
-    cout<<i^j;
-
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
+    return 0;
 }

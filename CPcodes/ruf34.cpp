@@ -52,9 +52,6 @@ void solve()
 int32_t main()
 {
     fast
-    //_GUNJAN_AGRAWAL_
-    cout<<"hello";
-    int i=8,j=9;
-    cout<<i^j;
 
+   cout<<ceil(ceil((7-3))/3);
 }

@@ -45,7 +45,21 @@ using namespace std;
 
 void solve()
 {
-
+    ll n,k;
+     cin>>n>>k;
+     string st;
+      cin>>st;
+      vi ans(n);
+      // k operation tak change kr pauga 
+      if(k&1)
+      {
+        
+      }
+      else 
+      {
+         
+      }
+      
 }
 
 
@@ -53,8 +67,11 @@ int32_t main()
 {
     fast
     //_GUNJAN_AGRAWAL_
-    cout<<"hello";
-    int i=8,j=9;
-    cout<<i^j;
-
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
+    return 0;
 }

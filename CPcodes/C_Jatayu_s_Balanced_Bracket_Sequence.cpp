@@ -45,7 +45,19 @@ using namespace std;
 
 void solve()
 {
-
+    int n;
+     cin>>n;
+      string st;
+      cin>>st;
+      int ans=1;
+      for(int i=1;i<2*n;i++)
+      {
+        if(st[i]=='('&&(st[i]==st[i-1]))
+        {
+            ans++;
+        }
+      }
+       cout<<ans<<endl;
 }
 
 
@@ -53,8 +65,11 @@ int32_t main()
 {
     fast
     //_GUNJAN_AGRAWAL_
-    cout<<"hello";
-    int i=8,j=9;
-    cout<<i^j;
-
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
+    return 0;
 }

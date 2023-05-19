@@ -45,7 +45,13 @@ using namespace std;
 
 void solve()
 {
-
+    int n;
+     cin>>n;
+     rep(i,1,n+1)
+     {
+        cout<<i*2<<" ";
+     }
+     cout<<endl;
 }
 
 
@@ -53,8 +59,11 @@ int32_t main()
 {
     fast
     //_GUNJAN_AGRAWAL_
-    cout<<"hello";
-    int i=8,j=9;
-    cout<<i^j;
-
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
+    return 0;
 }

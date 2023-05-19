@@ -45,7 +45,25 @@ using namespace std;
 
 void solve()
 {
-
+    ll n,q;
+     cin>>n>>q;
+     ll sum=0;
+        vector<ll>arr(n+1);
+        rep(i,1,n+1)
+        {
+            cin>>arr[i];
+            sum=sum+arr[i];
+        }
+        while(q--)
+        {
+            ll t,i,x;
+            cin>>t;
+            if(t==1){cin>>i;}
+            {cin>>x;}
+            if(t==1){sum=sum-arr[i]+x;}// easy 
+            else { sum=(n*x);}// difficult 
+            cout<<sum<<endl;
+        }
 }
 
 
@@ -53,8 +71,10 @@ int32_t main()
 {
     fast
     //_GUNJAN_AGRAWAL_
-    cout<<"hello";
-    int i=8,j=9;
-    cout<<i^j;
-
+   int t=1;
+    while(t--)
+    {
+    solve();
+    }
+    return 0;
 }

@@ -1,3 +1,4 @@
+
 //F047_gunjan_agrawal
 //gunjan agrawal
 //insta id->_gunjan_agrawal_
@@ -42,10 +43,41 @@
 ll gcd(ll a, ll b){if (b == 0)return a;return gcd(b, a % b);} //__gcd 
 ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
 using namespace std;
-
+int fact(int n)
+{
+      if(n==0)
+      return 1;
+    int res = 1;
+    for (int i = 2; i <= n; i++)
+        res = res * i;
+    return res;
+}
+int nCr(int n, int r)
+{
+    return fact(n) / (fact(r) * fact(n - r));
+}
+ 
 void solve()
 {
-
+    ll n;
+    cin>>n;
+    vector<int> a(n);
+    vector<int> b(n);
+    map<int,pair<int,int> >mp;
+    rep(i,0,n){cin>>a[i];}
+    sort(a.begin(),a.end());
+    rep(i,0,n){ int x;cin>>x;mp[x].first++;} 
+    for(auto i:mp)
+    {
+        i.second.second=n-(a.begin()-upper_bound(all(a),i.first));
+    }
+    ll ans=1;
+    ll dec=0;
+    for ( auto it = mp.rbegin(); it != mp.rend(); it++) {
+        ans=ans*( nCr((it->second.second-dec),it->second.first));
+        dec=dec+it->second.first;
+    }
+    cout<<ans<<endl;
 }
 
 
@@ -53,8 +85,11 @@ int32_t main()
 {
     fast
     //_GUNJAN_AGRAWAL_
-    cout<<"hello";
-    int i=8,j=9;
-    cout<<i^j;
-
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
+    return 0;
 }

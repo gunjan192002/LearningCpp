@@ -45,7 +45,32 @@ using namespace std;
 
 void solve()
 {
-
+    int n,k;cin>>n>>k;
+    set<int>st;
+    rep(i,1,k){st.insert(i);}
+    vector<vector<char>> arr(n,vector<char>(k));
+    rep(i,0,n)
+    {
+        rep(j,0,k)
+        {
+            cin>>arr[i][j];
+        }
+    }
+    int i=0;
+    while(!(st.empty() )&& i<n)
+    {
+        for(auto j=st.begin();j!=st.end();)
+        {
+                       if(arr[i][*j]!=arr[i][0])
+                       {
+                        st.erase(j++);continue;
+                       }
+                       j++;
+                   
+        }
+        i++;
+    }
+     cout<<st.size()+1<<endl;
 }
 
 
@@ -53,8 +78,11 @@ int32_t main()
 {
     fast
     //_GUNJAN_AGRAWAL_
-    cout<<"hello";
-    int i=8,j=9;
-    cout<<i^j;
-
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
+    return 0;
 }

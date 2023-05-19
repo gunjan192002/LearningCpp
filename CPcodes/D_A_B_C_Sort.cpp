@@ -45,16 +45,34 @@ using namespace std;
 
 void solve()
 {
-
-}
+    int n;
+    cin>>n;
+    vector<int>arr(n);
+    rep(i,0,n){cin>>arr[i];}
+    if(n==1){cout<<"YES"<<endl;return ;}
+    int i=n-1;
+     while(i>=1)
+      {
+        if(arr[i]<arr[i-1]){swap(arr[i],arr[i-1]);}
+        i=i-2;
+      }
+    for(int i=0;i<n-1;i++)
+    {
+        if(arr[i]>arr[i+1]){cout<<"NO"<<endl;return;}
+    }
+    cout<<"YES"<<endl;
+}   
 
 
 int32_t main()
 {
     fast
     //_GUNJAN_AGRAWAL_
-    cout<<"hello";
-    int i=8,j=9;
-    cout<<i^j;
-
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
+    return 0;
 }

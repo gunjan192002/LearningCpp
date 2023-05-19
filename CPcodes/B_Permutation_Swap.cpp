@@ -45,7 +45,28 @@ using namespace std;
 
 void solve()
 {
-
+    int n;
+     cin>>n;
+     int prev=-1;
+     int flag=0;int m;
+      for(int i=1;i<=n;i++)
+      {         
+            int x;cin>>x;
+            if(prev>x){flag=1;}
+            if(abs(x-i)>0)
+            {   if(i==1){m=abs(x-i);}
+            else 
+                m=gcd(m,abs(x-i));}
+          
+            prev=x;
+      }
+      if(flag==1)
+      {
+        cout<<m<<endl;}
+      else 
+      {
+        cout<<1<<endl;
+      }
 }
 
 
@@ -53,8 +74,11 @@ int32_t main()
 {
     fast
     //_GUNJAN_AGRAWAL_
-    cout<<"hello";
-    int i=8,j=9;
-    cout<<i^j;
-
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
+    return 0;
 }
