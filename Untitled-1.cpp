@@ -31,7 +31,6 @@ using namespace std;
 
 void solve()
 {
- 
 
 }
 
@@ -40,7 +39,11 @@ int32_t main()
 {
     fast
     //cooldude69.
-    char i=char(32);
-    cout<<"a"<<i<<"b"<<endl;
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
     return 0;
 }

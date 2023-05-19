@@ -1,0 +1,1 @@
+{"name":"Local: Reverse_A_LL","url":"/Users/gunjanagrawal/Developer/Linked List/Reverse_A_LL.cpp","tests":[{"id":1683126356361,"input":"3\n3\n10 20 30\n4\n1 2 1 2\n5\n1 1 1 1 12","output":"3\n4\n10"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/gunjanagrawal/Developer/Linked List/Reverse_A_LL.cpp","group":"local","local":true}

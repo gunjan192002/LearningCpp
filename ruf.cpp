@@ -18,7 +18,7 @@
 #define mp make_pair
 #define all(x) x.begin(), x.end()
 #define f first
-#define s second
+// #define s second
 #define rrep(i, n) for(int i=n-1;i>=0;i--)
 #define rep(i,a,b) for(int i=a;i<b;i++)
 #define repj(j,n) for(int j=0;j<n;j++)
@@ -29,26 +29,48 @@
 
 using namespace std;
 
-
-void solve()
-{int n=10;
- vector<int>ans(n,0); 
- for(auto root:ans)
- {
-    cout<<root<<endl;
- }
+// create a weighted graph 
+vector<pair<int,int>> g[100];
+void diji(int s)
+{
+    vector<int> vis(100,0);
+     vector<int> dist(100,INT_MAX);
+      set<pair<int,int>>st;
+        st.insert({0,s});
+        dist[s]=0;
+        while(st.size()>0)
+        {
+             auto node=* st.begin();
+             int v=node.second;
+             int d=node.first;
+             st.erase(st.begin());
+             if(vis[v]==1)
+             {
+                continue;
+             }
+             vis[v]=1; 
+             for(auto child: g[v])
+             {
+                int child_v=child.first;
+                int  wt=child.second;
+                if(dist[v] +wt<dist[child_v])
+                {
+                    dist[child_v]=dist[v] +wt;
+                    st.insert({dist[child_v],child_v});
+                }
+             }
+        }
 }
-
 
 int32_t main()
 {
     fast
-    //cooldude69.
-    int t=1;
-    cin>>t;
-    while(t--)
+    int n,m;
+    for(int i=0;i<m;i++)
     {
-    solve();
+        int x,y,m;
+         cin>>x>>y>>w;
+          g[x].push_back(make_pair(y,w));
     }
-    return 0;
+    diji(0)
 }

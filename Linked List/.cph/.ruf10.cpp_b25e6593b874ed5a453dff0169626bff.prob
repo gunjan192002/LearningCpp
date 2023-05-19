@@ -1,0 +1,1 @@
+{"name":"Local: ruf10","url":"/Users/gunjanagrawal/Developer/Linked List/ruf10.cpp","tests":[{"id":1683128848345,"input":"6\n1 2\n3 1\n3 4\n3 7\n4 6\n4 2","output":"616666671"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/gunjanagrawal/Developer/Linked List/ruf10.cpp","group":"local","local":true}
