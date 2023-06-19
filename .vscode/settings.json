@@ -8,5 +8,6 @@
         "numeric": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled",
-    "cmake.configureOnOpen": true
+    "cmake.configureOnOpen": true,
+    "liveServer.settings.port": 5501
 }

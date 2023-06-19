@@ -37,26 +37,43 @@
 #define pii pair<int,int>
 #define vi vector<int>
 using namespace std;
-ll gcd(ll a, ll b){if (b == 0)return a;return gcd(b, a % b);} //__gcd 
-ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
 
-int findRoot(vector<vector<int>>& arr, int n)
+
+void solve()
 {
-   // Every node appears once as an id, and
-   // every node except for the root appears
-   // once in a sum.  So if we subtract all
-   // the sums from all the ids, we're left
-   // with the root id.
-   int root = 0;
-   for (int i=0; i<n; i++)
-    root += (arr[i][0] - arr[i][1]);
-   return root;
+    int n;
+    cin>>n; 
+    vi a(n);
+    int neg=0;int pos=0;
+    rep(i,0,n)
+    {
+        cin>>a[i];
+        if(a[i]>0){pos++;}
+        if(a[i]<0){neg++;}
+     }
+        if(pos>=neg)
+        {   if(neg&1){cout<<1<<endl;return;}
+            cout<<0<<endl;return;
+            }
+        int cnt=0;
+        while(neg>pos)
+        {
+            neg--;cnt++;pos++;
+        }
+        if(neg&1){cnt++;}
+        cout<<cnt<<endl;
 }
- int minimumTotalPrice(int n, vector<vector<int>>& edges, vector<int>& price, vector<vector<int>>& trips) {
 
-    }
+
 int32_t main()
 {
-    //cout<<addMinimum("abcba");
+    fast
+    //_GUNJAN_AGRAWAL_
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
     return 0;
 }

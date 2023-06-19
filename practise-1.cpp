@@ -40,23 +40,10 @@ using namespace std;
 ll gcd(ll a, ll b){if (b == 0)return a;return gcd(b, a % b);} //__gcd 
 ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
 
-int findRoot(vector<vector<int>>& arr, int n)
-{
-   // Every node appears once as an id, and
-   // every node except for the root appears
-   // once in a sum.  So if we subtract all
-   // the sums from all the ids, we're left
-   // with the root id.
-   int root = 0;
-   for (int i=0; i<n; i++)
-    root += (arr[i][0] - arr[i][1]);
-   return root;
-}
- int minimumTotalPrice(int n, vector<vector<int>>& edges, vector<int>& price, vector<vector<int>>& trips) {
 
-    }
+
 int32_t main()
 {
-    //cout<<addMinimum("abcba");
-    return 0;
+   
+  cout<<pow(2,14);
 }

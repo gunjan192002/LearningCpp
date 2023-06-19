@@ -39,24 +39,29 @@
 using namespace std;
 ll gcd(ll a, ll b){if (b == 0)return a;return gcd(b, a % b);} //__gcd 
 ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
-
-int findRoot(vector<vector<int>>& arr, int n)
-{
-   // Every node appears once as an id, and
-   // every node except for the root appears
-   // once in a sum.  So if we subtract all
-   // the sums from all the ids, we're left
-   // with the root id.
-   int root = 0;
-   for (int i=0; i<n; i++)
-    root += (arr[i][0] - arr[i][1]);
-   return root;
-}
- int minimumTotalPrice(int n, vector<vector<int>>& edges, vector<int>& price, vector<vector<int>>& trips) {
-
+#define pii pair<int,int>
+ int minimumMultiplications(vector<int>& arr, int start, int end) {
+        // code here
+        int n=arr.size();
+        if(start==end){return 0;}
+        priority_queue<pii,vector<pii>,greater<pii>>pq;
+        pq.push({start,0});
+        while(!pq.empty())
+        {
+            int  val=pq.top().first;
+            int k=pq.top().second;
+            pq.pop();
+            for(int i=0;i<n;i++)
+            {
+                
+            }
+        }
     }
+
+
 int32_t main()
 {
-    //cout<<addMinimum("abcba");
-    return 0;
+   int x=3;
+   x=x^x^x;
+    cout<<x<<endl;
 }

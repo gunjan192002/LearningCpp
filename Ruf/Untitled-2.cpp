@@ -1,7 +1,9 @@
-// _GUNJAN_AGRAWAL_ 
+//F047_gunjan_agrawal
+//gunjan agrawal
 //insta id->_gunjan_agrawal_
-//Leetcode-> https://leetcode.com/gunjan192002/
-//LinekdIN->https://www.linkedin.com/in/gunjan-agrawal-537929229/
+// header files
+//#include <bits/stdc++.h>
+
 #include <vector>
 #include <map>
 #include <algorithm>
@@ -36,27 +38,26 @@
 #define ps(x,y) fixed<<setprecision(y)<<x
 #define pii pair<int,int>
 #define vi vector<int>
-using namespace std;
+
 ll gcd(ll a, ll b){if (b == 0)return a;return gcd(b, a % b);} //__gcd 
 ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
+using namespace std;
 
-int findRoot(vector<vector<int>>& arr, int n)
+void solve()
 {
-   // Every node appears once as an id, and
-   // every node except for the root appears
-   // once in a sum.  So if we subtract all
-   // the sums from all the ids, we're left
-   // with the root id.
-   int root = 0;
-   for (int i=0; i<n; i++)
-    root += (arr[i][0] - arr[i][1]);
-   return root;
-}
- int minimumTotalPrice(int n, vector<vector<int>>& edges, vector<int>& price, vector<vector<int>>& trips) {
 
-    }
+}
+
+
 int32_t main()
 {
-    //cout<<addMinimum("abcba");
+    fast
+    //_GUNJAN_AGRAWAL_
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
     return 0;
 }

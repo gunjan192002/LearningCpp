@@ -39,22 +39,28 @@
 using namespace std;
 ll gcd(ll a, ll b){if (b == 0)return a;return gcd(b, a % b);} //__gcd 
 ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
-
-void solve()
+// jab bhi stack se pop hogae element tab hi calculate krna hai 
+  int sumDistance(vector<int>& nums, string s, int d) {
+            stack<pair<char,int>>st;
+            int ans=0;int i=0;
+            while(i<s.size())
+            {
+                if(st.empty())
+                {
+                    st.push({s[i],nums[i]});
+                }
+                else 
+                {
+                    if(st.top().first=='L'&&s[i]=='L')
+                    {
+                        ans=st.top().second
+                    }
+                }
+            }
+            return ans;
+    }
+ 
+int main()
 {
-   
-}
-
-
-int32_t main()
-{
-   fast
-   //_GUNJAN_AGRAWAL_
-   int t;
-   cin>>t;
-   while(t--)
-   {
-   solve();
-   }
-   return 0;
+   // cout<<longestSemiRepetitiveSubstring("0012355");
 }

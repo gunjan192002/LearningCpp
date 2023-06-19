@@ -40,23 +40,48 @@ using namespace std;
 ll gcd(ll a, ll b){if (b == 0)return a;return gcd(b, a % b);} //__gcd 
 ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
 
-int findRoot(vector<vector<int>>& arr, int n)
+void solve()
 {
-   // Every node appears once as an id, and
-   // every node except for the root appears
-   // once in a sum.  So if we subtract all
-   // the sums from all the ids, we're left
-   // with the root id.
-   int root = 0;
-   for (int i=0; i<n; i++)
-    root += (arr[i][0] - arr[i][1]);
-   return root;
-}
- int minimumTotalPrice(int n, vector<vector<int>>& edges, vector<int>& price, vector<vector<int>>& trips) {
-
+    int n; cin>>n;
+    vector<int> v(n);
+    int d = 0;
+    for(int i=0; i<n; i++){
+        int a; cin>>a;
+        while(a%2==0){
+            d++;
+            a/=2;
+        }
+        int j = i+1;
+        int d2 = 0;
+        while(j%2==0){
+            d2++;
+            j/=2;
+        }
+        v[i]=d2;
     }
+    int ans = 0;
+    //dbg(d);
+    //dbgv(v);
+    sort(v.rbegin(), v.rend());
+    for(int i=0; i<n and d < n; i++){
+        d+=v[i];
+        ans++;
+    }
+    if(d<n) ans = -1;
+    
+    cout << ans << endl;
+}
+
+
 int32_t main()
 {
-    //cout<<addMinimum("abcba");
+    fast
+    //_GUNJAN_AGRAWAL_
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
     return 0;
 }

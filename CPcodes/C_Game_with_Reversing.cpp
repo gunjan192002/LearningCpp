@@ -27,8 +27,8 @@
 #define pb push_back
 #define mp make_pair
 #define all(x) x.begin(), x.end()
-#define f first
-#define s second
+//#define f first
+//#define s second
 #define rrep(i, n) for(int i=n-1;i>=0;i--)
 #define rep(i,a,b) for(int i=a;i<b;i++)
 #define repj(j,n) for(int j=0;j<n;j++)
@@ -40,23 +40,38 @@ using namespace std;
 ll gcd(ll a, ll b){if (b == 0)return a;return gcd(b, a % b);} //__gcd 
 ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
 
-int findRoot(vector<vector<int>>& arr, int n)
+void solve()
 {
-   // Every node appears once as an id, and
-   // every node except for the root appears
-   // once in a sum.  So if we subtract all
-   // the sums from all the ids, we're left
-   // with the root id.
-   int root = 0;
-   for (int i=0; i<n; i++)
-    root += (arr[i][0] - arr[i][1]);
-   return root;
-}
- int minimumTotalPrice(int n, vector<vector<int>>& edges, vector<int>& price, vector<vector<int>>& trips) {
+    int n;
+    cin>>n;
+    string a,b;
+    cin>>a>>b;
+    int frw=0,back=0;
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]==b[i]){frw++;}
+        if(a[i]==b[n-i-1]){back++;}
+    }
+    bool flag=0;
+    if(frw>=back){
 
     }
+    else 
+    {
+
+    }
+}
+
+
 int32_t main()
 {
-    //cout<<addMinimum("abcba");
+    fast
+    //_GUNJAN_AGRAWAL_
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
     return 0;
 }

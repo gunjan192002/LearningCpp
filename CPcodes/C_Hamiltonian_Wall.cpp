@@ -39,24 +39,31 @@
 using namespace std;
 ll gcd(ll a, ll b){if (b == 0)return a;return gcd(b, a % b);} //__gcd 
 ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
-
-int findRoot(vector<vector<int>>& arr, int n)
-{
-   // Every node appears once as an id, and
-   // every node except for the root appears
-   // once in a sum.  So if we subtract all
-   // the sums from all the ids, we're left
-   // with the root id.
-   int root = 0;
-   for (int i=0; i<n; i++)
-    root += (arr[i][0] - arr[i][1]);
-   return root;
+int n;
+string s[2];
+int g(int i,int j){
+if(j==n)return 1;
+if(s[i][j]!='B')return 0;
+if(s[1-i][j]=='B')return g(1-i,j+1);
+return g(i,j+1);
 }
- int minimumTotalPrice(int n, vector<vector<int>>& edges, vector<int>& price, vector<vector<int>>& trips) {
+void solve()
+{
+cin>>n;
+cin>>s[0];
+cin>>s[1];
+cout<<(g(0,0)|g(1,0)?"YES":"NO")<<endl;
+}
 
-    }
 int32_t main()
 {
-    //cout<<addMinimum("abcba");
+    fast
+    //_GUNJAN_AGRAWAL_
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
     return 0;
 }
