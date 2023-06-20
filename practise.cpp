@@ -36,40 +36,54 @@
 #define ps(x,y) fixed<<setprecision(y)<<x
 #define pii pair<int,int>
 #define vi vector<int>
+const int maxm = 8e5 + 6;
+ll n,m;
 using namespace std;
 ll gcd(ll a, ll b){if (b == 0)return a;return gcd(b, a % b);} //__gcd 
 ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
-
-void sort012(int arr[], int n)
-    {
-        // code here 
-        int zero=0,two=n-1;
-        for(int i=0;i<n;i++)
-        {
-            if(arr[i]==0)
-            {
-                while(arr[zero]==0){zero++;}
-                swap(arr[i],arr[zero]);
-                zero++;
-            }
-            else  if(arr[i]==2&&two>i)
-           {
-                
-               swap(arr[i],arr[two]);
-               two--;
-           }
-           
-        }
+vector<int> graph[maxm] , z[maxm];
+ll tempvalue[maxm] ;
+void dfs(ll x , ll drop = -1){
+    if (graph[x].size()==1 && x!=1) tempvalue[x] = 1;
+    for (auto v:graph[x]){
+        if (v!=drop) 
+       { dfs(v,x) ;
+        tempvalue[x] += tempvalue[v];}
     }
-    
+}
+void solve()
+{
+    int n;
+    cin >>n;
+
+        for (int i=1; i<=n; i++) 
+        {graph[i].clear() , tempvalue[i] = 0;}
+        for (int i=1; i<n; i++){
+            ll left,right;
+            cin>>left>>right;
+            graph[left].pb(right);
+            graph[right].pb(left);
+        }
+        dfs(1);
+        ll temp;
+        cin >>temp;
+        while (temp--){
+            ll left,right;
+            cin >>left>>right;
+            cout<<tempvalue[left]*tempvalue[right]<<endl;
+        }
+}
+
+
 int32_t main()
 {
-    int arr[]={2,1,0,1,2,0,0};
-    int n = 7;
-    sort012(arr,n);
-    for(int i=0;i<n;i++)
+    fast
+    //_GUNJAN_AGRAWAL_
+    int t;
+    cin>>t;
+    while(t--)
     {
-        cout<<arr[i]<<" ";
+    solve();
     }
     return 0;
 }

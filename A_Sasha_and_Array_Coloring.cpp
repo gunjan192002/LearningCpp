@@ -40,36 +40,35 @@ using namespace std;
 ll gcd(ll a, ll b){if (b == 0)return a;return gcd(b, a % b);} //__gcd 
 ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
 
-void sort012(int arr[], int n)
-    {
-        // code here 
-        int zero=0,two=n-1;
-        for(int i=0;i<n;i++)
+void solve()
+{
+    int n;
+     cin>>n;
+     vi vc(n);
+      for(int i=0;i<n;i++)
+      {
+        cin>>vc[i];
+      }
+      sort(vc.begin(),vc.end());
+      int i=0;int j=n-1;int ans=0;
+        while(i<j)
         {
-            if(arr[i]==0)
-            {
-                while(arr[zero]==0){zero++;}
-                swap(arr[i],arr[zero]);
-                zero++;
-            }
-            else  if(arr[i]==2&&two>i)
-           {
-                
-               swap(arr[i],arr[two]);
-               two--;
-           }
-           
+            ans+=vc[j]-vc[i];
+            i++;j--;
         }
-    }
-    
+       cout<<ans<<endl;
+}
+
+
 int32_t main()
 {
-    int arr[]={2,1,0,1,2,0,0};
-    int n = 7;
-    sort012(arr,n);
-    for(int i=0;i<n;i++)
+    fast
+    //_GUNJAN_AGRAWAL_
+    int t;
+    cin>>t;
+    while(t--)
     {
-        cout<<arr[i]<<" ";
+    solve();
     }
     return 0;
 }
