@@ -10,8 +10,9 @@
 #include <queue>
 #include <set>
 #include <iostream>
+#include <unordered_set>
 #define pi (3.141592653589)
-#define M 1000000007
+        #define M 1000000007
 #define set_bits(x) __builtin_popcountll(x)
 #define zero_bits(x) __builtin_ctzll(x)
 #define Num_of_Digits(n) ((int)log10(n) + 1)
@@ -39,13 +40,30 @@
 using namespace std;
 ll gcd(ll a, ll b){if (b == 0)return a;return gcd(b, a % b);} //__gcd 
 ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
-// I guess 2^n is the answer first calculate n ra
-//T P P P T T P T P T P P T T P T T P P P P P T T P T (12 D D P D)
-//P T T T P P P (15 P P)
-// P T T P T P T P T T P T P T T P T T T T T T T P P T P T P T P P T 
-//T P P T T T T T T T T T T P T P P P P T P T T
 
+int lenOfLongSubarr(int arr[],  int N, int K) 
+    {
+        int ans=0;
+        unordered_map<int,int> mp;
+        int psum=0;
+        mp[0]=-1;
+        for(int i=0;i<N;i++)
+        {   
+            psum=psum+arr[i];
+            
+            if(mp.find(psum-K)!=mp.end())
+            {
+                ans=max(i-mp[psum-K],ans);
+            }
+            if(mp.find(psum)==mp.end())
+            {
+                mp[psum]=i;
+            }
+        }
+        return ans;
+    } 
 int32_t main()
 {
-  cout<<coloredCells(4);
+      int arr[]={0,5,6,7,8,9};
+      cout<<lenOfLongSubarr(arr,6,0);
 }

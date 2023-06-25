@@ -39,11 +39,44 @@
 using namespace std;
 ll gcd(ll a, ll b){if (b == 0)return a;return gcd(b, a % b);} //__gcd 
 ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
-
+int solve(map<int,vector<int>> &mp,vector<int> &arr,int ind,vector<int> &dp)
+{
+    if(ind>=arr.size()){return 0;}
+    if(dp[ind]!=-1){return dp[ind];}
+    // choose 
+    int choose=0;
+    
+    int k=mp[arr[ind]].size();
+    if(k>1)
+    {
+        int i=0;
+        while(i<k)
+        {
+            if(mp[arr[ind]][i]>ind)
+            {
+                // call the function for that 
+                choose=max(choose,mp[arr[ind]][i]-ind+1+solve(mp,arr,mp[arr[ind]][i]+1,dp));
+                
+            }
+            i++;
+        }
+    }
+    // not choose 
+    int not_choose=solve(mp,arr,ind+1,dp);
+    return dp[ind]=max(choose,not_choose);
+}
 void solve()
 {
-    // make all possile index something something and do whatever either map or anything 
-    
+    int n;cin>>n;
+    vector<int> dp(n+3,-1);
+    map<int,vector<int>> mp;
+    vector<int> arr(n);
+    rep(i,0,n)
+    {
+        cin>>arr[i];
+        mp[arr[i]].push_back(i);
+    }
+    cout<<solve(mp,arr,0,dp)<<endl;
 }
 
 
