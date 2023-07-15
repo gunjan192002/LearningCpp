@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temperature Converter</title>
+  <style>
+    /* CSS Styles for the Temperature Converter */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+      background-image: url("https://source.unsplash.com/random/1600x900");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .header {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 5px;
+      margin-top: 100px;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .convert-button {
+      background-color: #ff5a5f;
+      color: #fff;
+      font-size: 16px;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 30px;
+    }
+
+    .footer {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      font-size: 14px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .faded-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <div class="faded-background"></div>
+
+  <div class="header">
+    <h1>Temperature Converter</h1>
+    <p>Temperature is a measure of the average kinetic energy of particles in a substance. This tool allows you to convert temperatures between different units.</p>
+  </div>
+
+  <div class="container">
+    <form id="temperatureForm">
+      <div class="form-group">
+        <label for="temperature">Temperature:</label>
+        <input type="number" id="temperature" name="temperature" required>
+      </div>
+
+      <div class="form-group">
+        <label for="fromUnit">From:</label>
+        <select id="fromUnit" name="fromUnit">
+          <option value="celsius">Celsius</option>
+          <option value="fahrenheit">Fahrenheit</option>
+          <option value="kelvin">Kelvin</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="toUnit">To:</label>
+        <select id="toUnit" name="toUnit">
+          <option value="celsius">Celsius</option>
+          <option value="fahrenheit">Fahrenheit</option>
+          <option value="kelvin">Kelvin</option>
+        </select>
+      </div>
+
+      <button type="submit" class="convert-button">Convert</button>
+    </form>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2023 Temperature Converter. All rights reserved.</p>
+  </div>
+
+  <script>
+    // JavaScript logic for temperature conversion
+    const form = document.getElementById('temperatureForm');
+    const resultDiv = document.getElementById('result');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const temperatureInput = parseFloat(form.temperature.value);
+      const fromUnit = form.fromUnit.value;
+      const toUnit = form.toUnit.value;
+
+      let convertedTemperature;
+
+      if (fromUnit === 'celsius') {
+        if (toUnit === 'fahrenheit') {
+          convertedTemperature = (temperatureInput * 9 / 5) + 32;
+        } else if (toUnit === 'kelvin') {
+          convertedTemperature = temperatureInput + 273.15;
+        } else {
+          convertedTemperature = temperatureInput;
+        }
+      } else if (fromUnit === 'fahrenheit') {
+        if (toUnit === 'celsius') {
+          convertedTemperature = (temperatureInput - 32) * 5 / 9;
+        } else if (toUnit === 'kelvin') {
+          convertedTemperature = (temperatureInput - 32) * 5 / 9 + 273.15;
+        } else {
+          convertedTemperature = temperatureInput;
+        }
+      } else if (fromUnit === 'kelvin') {
+        if (toUnit === 'celsius') {
+          convertedTemperature = temperatureInput - 273.15;
+        } else if (toUnit === 'fahrenheit') {
+          convertedTemperature = (temperatureInput - 273.15) * 9 / 5 + 32;
+        } else {
+          convertedTemperature = temperatureInput;
+        }
+      }
+
+      resultDiv.textContent = `Converted Temperature: ${convertedTemperature.toFixed(2)} ${toUnit.charAt(0).toUpperCase() + toUnit.slice(1)}`;
+    });
+  </script>
+</body>
+</html>

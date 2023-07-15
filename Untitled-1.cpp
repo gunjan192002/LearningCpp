@@ -40,23 +40,21 @@ using namespace std;
 ll gcd(ll a, ll b){if (b == 0)return a;return gcd(b, a % b);} //__gcd 
 ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
 
-enum week { Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday };  
-class hero
+void solve()
 {
 
-    
-    
-};
+}
+
+
 int32_t main()
-{  
-cout<<sizeof(hero)<<endl;
-
-
-
-
-
-
-
-
-
-}     
+{
+    fast
+    //_GUNJAN_AGRAWAL_
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
+    return 0;
+}
