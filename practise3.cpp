@@ -5,51 +5,59 @@
 // Codechef: https://www.codechef.com/users/gunjan192002
 
 #include <bits/stdc++.h>
-//#include <iostream>
-//#include <map>
-//#include <unordered_map>
-//#include <math.h>
-//#include <vector>
-//#include <utility>
+// #include <iostream>
+// #include <map>
+// #include <unordered_map>
+// #include <math.h>
+// #include <vector>
+// #include <utility>
 #include <set>
 using namespace std;
 
-//Speed
+// Speed
 #define fastio() ios_base::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
 
-//Macros
-#define IOtext freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);
+// Macros
+#define IOtext                        \
+    freopen("input.txt", "r", stdin); \
+    freopen("output.txt", "w", stdout);
 #define PI (3.141592653589)
 #define M 1000000007
 #define pb push_back
 #define f first
 #define s second
-#define foreach(i, j, k, in) for(int i=j;i<k;i+=in)
-#define rforeach(i, j, k, in) for(int i=j;i>=k;i-=in)
-#define rep(i,j) foreach(i,0,j,1)
-#define rrep(i,j) rforeach(i,j,0,1)
+#define foreach(i, j, k, in) for (int i = j; i < k; i += in)
+#define rforeach(i, j, k, in) for (int i = j; i >= k; i -= in)
+#define rep(i, j) foreach (i, 0, j, 1)
+#define rrep(i, j) rforeach(i, j, 0, 1)
 #define set_bits(x) __builtin_popcountll(x)
 #define zero_bits(x) __builtin_ctzll(x)
 #define sz(s) (int)(s.size())
 #define Num_of_Digits(n) ((int)log10(n) + 1)
-#define inint(x) int x; cin>>x;
-#define inll(x) long long int x; cin>>x;
-#define instr(x) string x; cin>>x;
+#define inint(x) \
+    int x;       \
+    cin >> x;
+#define inll(x)      \
+    long long int x; \
+    cin >> x;
+#define instr(x) \
+    string x;    \
+    cin >> x;
 #define all(x) x.begin(), x.end()
-//#define os(x) cout << x << " ";
-//#define out(x) cout << x << endl;
+// #define os(x) cout << x << " ";
+// #define out(x) cout << x << endl;
 #define MAX(x) *max_element(all(x))
 #define MIN(x) *min_element(all(x))
 #define SUM(x) accumulate(all(x), 0LL)
-#define COUNT(x,u) count(all(x), u)
+#define COUNT(x, u) count(all(x), u)
 #define B break
 #define C continue
-//#define py cout<<"YES"<<endl
-//#define pn cout<<"NO"<<endl
-//#define pm cout<<"-1"<<endl
-//#define ps(x,y) fixed<<setprecision(y)<<x
+// #define py cout<<"YES"<<endl
+// #define pn cout<<"NO"<<endl
+// #define pm cout<<"-1"<<endl
+// #define ps(x,y) fixed<<setprecision(y)<<x
 
-//Typedef
+// Typedef
 typedef long long ll;
 typedef unsigned long long ull;
 typedef long double lld;
@@ -61,45 +69,126 @@ typedef vector<pi> vpi;
 typedef vector<pl> vpl;
 typedef vector<vi> vvi;
 typedef vector<vl> vvl;
-typedef map<int,int> mii;
+typedef map<int, int> mii;
 typedef set<int> st;
 
-//Check
-bool isPrime(ll n){if(n<=1)return false;if(n<=3)return true;if(n%2==0||n%3==0)return false;for(int i=5;i*i<=n;i=i+6)if(n%i==0||n%(i+2)==0)return false;return true;}
-bool isPowerOfTwo(int n){if(n==0)return false;return (ceil(log2(n)) == floor(log2(n)));}
-bool isPerfectSquare(ll x){if (x >= 0) {ll sr = sqrt(x);return (sr * sr == x);}return false;}
+// Check
+bool isPrime(ll n)
+{
+    if (n <= 1)
+        return false;
+    if (n <= 3)
+        return true;
+    if (n % 2 == 0 || n % 3 == 0)
+        return false;
+    for (int i = 5; i * i <= n; i = i + 6)
+        if (n % i == 0 || n % (i + 2) == 0)
+            return false;
+    return true;
+}
+bool isPowerOfTwo(int n)
+{
+    if (n == 0)
+        return false;
+    return (ceil(log2(n)) == floor(log2(n)));
+}
+bool isPerfectSquare(ll x)
+{
+    if (x >= 0)
+    {
+        ll sr = sqrt(x);
+        return (sr * sr == x);
+    }
+    return false;
+}
 
 // Mathematical functions
-//void Sieve(int n){ is_prime.assign(n + 1, true); is_prime[0] = is_prime[1] = false; for(ll i = 2; i * i <= n; i++) if(is_prime[i]) for(ll j = i * i; j <= n; j += i) is_prime[j] = false;}
-//void get_primes(int n){ for(int i = 2; i <= n; i++)  if(is_prime[i])  primes.push_back(i); }
-ll mod_add(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a + b) % m) + m) % m;}
-ll mod_sub(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) % m;}
-ll gcd(ll a, ll b){if (b == 0)return a;return gcd(b, a % b);} //__gcd 
-ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
-ll moduloMultiplication(ll a,ll b,ll mod){ll res = 0;a %= mod;while (b){if (b & 1)res = (res + a) % mod;b >>= 1;}return res;}
-ll powermod(ll x, ll y, ll p){ll res = 1;x = x % p;if (x == 0) return 0;while (y > 0){if (y & 1)res = (res*x) % p;y = y>>1;x = (x*x) % p;}return res;}
-ll modinv(ll p,ll q){ll ex;ex=M-2;while (ex) {if (ex & 1) {p = (p * q) % M;}q = (q * q) % M;ex>>= 1;}return p;}
+// void Sieve(int n){ is_prime.assign(n + 1, true); is_prime[0] = is_prime[1] = false; for(ll i = 2; i * i <= n; i++) if(is_prime[i]) for(ll j = i * i; j <= n; j += i) is_prime[j] = false;}
+// void get_primes(int n){ for(int i = 2; i <= n; i++)  if(is_prime[i])  primes.push_back(i); }
+ll mod_add(ll a, ll b, ll m)
+{
+    a = a % m;
+    b = b % m;
+    return (((a + b) % m) + m) % m;
+}
+ll mod_sub(ll a, ll b, ll m)
+{
+    a = a % m;
+    b = b % m;
+    return (((a - b) % m) + m) % m;
+}
+ll gcd(ll a, ll b)
+{
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
+} //__gcd
+ll lcm(ll a, ll b) { return (a / gcd(a, b) * b); }
+ll moduloMultiplication(ll a, ll b, ll mod)
+{
+    ll res = 0;
+    a %= mod;
+    while (b)
+    {
+        if (b & 1)
+            res = (res + a) % mod;
+        b >>= 1;
+    }
+    return res;
+}
+ll powermod(ll x, ll y, ll p)
+{
+    ll res = 1;
+    x = x % p;
+    if (x == 0)
+        return 0;
+    while (y > 0)
+    {
+        if (y & 1)
+            res = (res * x) % p;
+        y = y >> 1;
+        x = (x * x) % p;
+    }
+    return res;
+}
+ll modinv(ll p, ll q)
+{
+    ll ex;
+    ex = M - 2;
+    while (ex)
+    {
+        if (ex & 1)
+        {
+            p = (p * q) % M;
+        }
+        q = (q * q) % M;
+        ex >>= 1;
+    }
+    return p;
+}
 
 void solve()
 {
-        char x='3';
-        int z=x-'0';
-        cout<<z<<endl;
+    string k = "1 3 0 0 1 1 1 3 2 2 2 2 3 0 0 2 1 6 2 3 2 7 0 2 1 2 2 3 5 2 1 4 3 5 3 3 2 3 4 4 2 8 3 1 2 7 7 3 3 2 4 1 5 0 0 5 3 4 1 2 1 2 3 4 2 1 4 2 2 0 3 4 2 1 0 3 0 3 1 4 4 1 1 1 2 1 1 1 2 4 0 1 1 3 6 2 1 8 0 1 4 1 3 3 2 3 1 1 2 3 3 1 0 3 3 2 0 2 2 2 7 2 1 7 4 3 2 2 1 2 3 7 2 3 3 2 3 5 6 1 0 2 1 3 3 1 0 1 2 0 1 2 3 5 2 4 3 1 3 1 2 3 0 2 2 1 3 1 0 4 1";
+    string z = "1 3 0 0 1 1 1 3 2 2 2 2 3 0 0 2 1 6 2 3 2 7 0 2 1 2 2 3 5 2 1 4 3 5 3 3 2 3 4 4 2 8 3 1 2 7 7 3 3 2 4 1 5 0 0 5 3 4 1 2 1 2 3 4 2 1 4 2 2 0 3 4 2 1 0 3 0 3 1 4 4 1 1 1 2 1 1 1 2 4 0 1 1 3 6 2 1 8 0 1 4 1 3 3 2 3 1 1 2 3 3 1 0 3 3 2 0 2 2 2 7 2 1 7 4 3 2 2 1 2 3 7 2 3 3 2 3 5 6 1 0 2 1 3 3 1 0 1 2 0 1 2 3 5 2 4 3 1 3 1 2 3 0 2 2 1 3 1 0 4 1 ";
+    for(int i=0;i<k.size();i++)
+    {
+        if(k[i]!=z[i])cout<<i;break;
+        
+    }
 }
-
-
 int32_t main()
 {
     fastio()
-    #ifndef ONLINE_JUDGE
-        freopen("Error.txt","w",stderr);
-    #endif
-    //hello baccho ,code krlo
-    int t=1;
+#ifndef ONLINE_JUDGE
+        freopen("Error.txt", "w", stderr);
+#endif
+    // hello baccho ,code krlo
+    int t = 1;
 
-    while(t--)
+    while (t--)
     {
-    solve();
+        solve();
     }
     return 0;
 }

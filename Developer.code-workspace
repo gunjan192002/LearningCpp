@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../nodejs"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "webd",
+		"files.associations": {
+			"vector": "cpp",
+			"iostream": "cpp",
+			"random": "cpp"
+		}
+	}
+}
