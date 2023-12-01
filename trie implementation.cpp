@@ -25,8 +25,8 @@ void insert(Trie *root,string word)
         if(!temp->child[word[i]-'a'])
         {
             temp->child[word[i]-'a']=getNode();
-            temp=temp->child[word[i]-'a'];
         }
+        temp=temp->child[word[i]-'a'];
     }
     temp->idEnd=true;
 }
