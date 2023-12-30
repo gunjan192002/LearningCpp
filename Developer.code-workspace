@@ -4,15 +4,13 @@
 			"path": "."
 		},
 		{
-			"path": "../nodejs"
+			"path": "../webd/Projects/ToDoList"
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "webd",
 		"files.associations": {
-			"vector": "cpp",
 			"iostream": "cpp",
-			"random": "cpp"
+			"vector": "cpp"
 		}
 	}
 }
