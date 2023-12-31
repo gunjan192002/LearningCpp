@@ -18,7 +18,7 @@ typedef pair<int, int> pi;
 typedef vector<int> vi;
 
 vector<vector<string>> squares;
-
+//asdf
 void precompute() {
     vector<string> temp = {"1"};
     vector<string> specialNumbers = {"169", "961", "196"};
