@@ -1,4 +1,4 @@
-// 2024-01-10 02:58:26
+// 2024-05-09 13:44:39
 // GUNJAN AGRWAL
 // Linkedin: https://www.linkedin.com/in/gunjan-agrawal-537929229/
 // Codeforces: https://codeforces.com/profile/Doby_Deol
@@ -79,21 +79,55 @@ ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
 ll moduloMultiplication(ll a,ll b,ll mod){ll res = 0;a %= mod;while (b){if (b & 1)res = (res + a) % mod;b >>= 1;}return res;}
 ll powermod(ll x, ll y, ll p){ll res = 1;x = x % p;if (x == 0) return 0;while (y > 0){if (y & 1)res = (res*x) % p;y = y>>1;x = (x*x) % p;}return res;}
 ll modinv(ll p,ll q){ll ex;ex=M-2;while (ex) {if (ex & 1) {p = (p * q) % M;}q = (q * q) % M;ex>>= 1;}return p;}
-
+//gaddha logic lets do it 
+//i=i+1+(remaining index*multi)
+void solve()
+{
+    ll n,k;
+    cin>>n>>k;
+    vector<ll> arr(n);
+    for(int i=0;i<n;i++){cin>>arr[i];}
+    sort(arr.begin(),arr.end());
+    reverse(arr.begin(),arr.end());
+    vector<ll> temp(n);
+    temp[n-1]=0;
+    //for(int i=0;i<n;i++){cout<<arr[i];}cout<<endl;
+    for(int i=n-2;i>=0;i--)
+    {
+        temp[i]=temp[i+1]+(arr[i]-arr[i+1])*(n-1-i);
+    }
+    //for(int i=0;i<n;i++){cout<<temp[i]<<" ";}cout<<endl;
+    for(int i=0;i<n;i++)
+    {
+        if(k>=temp[i]) 
+        {
+           ll ans=((arr[i]+(k-temp[i])/(n-i))*n)+i-n+1+(k-temp[i])%(n-i);
+        //    i++;
+        //    ll mx=ans;
+        //    while(k>=temp[i]&&i<n&&temp[i]==temp[i-1])
+        //    {
+        //     mx=max(mx,((arr[i]+(k-temp[i])/(n-i))*n)+i-n+1);
+        //     i++;
+        //    }
+           cout<<ans<<endl;
+            break;
+        }
+    }
+}
 
 
 int32_t main()
 {
-    string=''"Flow Duration","Total Fwd Packets",   "Total Backward Packets","Total Length of Fwd Packets","Total Length of Bwd Packets","Fwd Packet Length Max","Fwd Packet Length Min",
-   "Fwd Packet Length Mean" ,"Fwd Packet Length Std","Bwd Packet Length Max","Bwd Packet Length Min","Bwd Packet Length Mean","Bwd Packet Length Std",
-   "Flow Bytes/s","Flow Packets/s","Flow IAT Mean","Flow IAT Std","Flow IAT Max","Flow IAT Min","Fwd IAT Total","Fwd IAT Mean","Fwd IAT Std","Fwd IAT Max",
-   "Fwd IAT Min","Bwd IAT Total","Bwd IAT Mean","Bwd IAT Std","Bwd IAT Max","Bwd IAT Min","Fwd PSH Flags","Bwd PSH Flags","Fwd URG Flags","Bwd URG Flags",
-   "Fwd Header Length","Bwd Header Length","Fwd Packets/s","Bwd Packets/s","Min Packet Length","Max Packet Length","Packet Length Mean","Packet Length Std",
-   "Packet Length Variance","FIN Flag Count","SYN Flag Count","RST Flag Count","PSH Flag Count","ACK Flag Count","URG Flag Count","CWE Flag Count",
-   "ECE Flag Count","Down/Up Ratio","Average Packet Size","Avg Fwd Segment Size","Avg Bwd Segment Size","Fwd Avg Bytes/Bulk",
-   "Fwd Avg Packets/Bulk","Fwd Avg Bulk Rate","Bwd Avg Bytes/Bulk","Bwd Avg Packets/Bulk","Bwd Avg Bulk Rate","Subflow Fwd Packets","Subflow Fwd Bytes",
-   "Subflow Bwd Packets","Subflow Bwd Bytes","Init_Win_bytes_forward","Init_Win_bytes_backward","act_data_pkt_fwd",
-   "min_seg_size_forward","Active Mean","Active Std","Active Max","Active Min",
-    "Idle Mean","Idle Std","Idle Max", "Idle Min","Label"'';
-
+    fastio()
+    #ifndef ONLINE_JUDGE
+        freopen("Error.txt","w",stderr);
+    #endif
+    //hello baccho ,code krlo
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
+    return 0;
 }

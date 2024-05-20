@@ -1,4 +1,4 @@
-// 2024-01-10 02:58:26
+// 2024-05-07 13:08:10
 // GUNJAN AGRWAL
 // Linkedin: https://www.linkedin.com/in/gunjan-agrawal-537929229/
 // Codeforces: https://codeforces.com/profile/Doby_Deol
@@ -23,7 +23,7 @@ using namespace std;
 #define M 1000000007
 #define pb push_back
 #define f first
-#define s second
+// #define s second
 #define foreach(i, j, k, in) for(int i=j;i<k;i+=in)
 #define rforeach(i, j, k, in) for(int i=j;i>=k;i-=in)
 #define rep(i,j) foreach(i,0,j,1)
@@ -80,20 +80,61 @@ ll moduloMultiplication(ll a,ll b,ll mod){ll res = 0;a %= mod;while (b){if (b & 
 ll powermod(ll x, ll y, ll p){ll res = 1;x = x % p;if (x == 0) return 0;while (y > 0){if (y & 1)res = (res*x) % p;y = y>>1;x = (x*x) % p;}return res;}
 ll modinv(ll p,ll q){ll ex;ex=M-2;while (ex) {if (ex & 1) {p = (p * q) % M;}q = (q * q) % M;ex>>= 1;}return p;}
 
+ll fun( vector<ll> &p, vector<ll> &a,ll s , ll k)
+{
+    int n=p.size();
+    vector<bool>vis(n);
+    ll mx=0,cur=0;
+    while((!vis[s])&&k>0)
+    {
+        vis[s]=1;
+        
+
+        mx=max(mx,cur+1ll*k*a[s]);
+        cur+=a[s];
+        --k;
+        s=p[s];
+        
+    }
+    return mx;
+}
+void solve()
+{
+   ll n,k,p1,p2;
+    cin>>n>>k>>p1>>p2;
+    vector<ll> p(n),a(n);
+    for(auto &e:p)
+    {
+        cin>>e;
+       e--;
+    }
+    for(auto &e:a)
+    {
+        cin>>e;
+       e--;
+    }
+    
+    ll A=fun(p,a,p1-1,k),Bi=fun(p,a,p2-1,k);
+    
+    if(A>Bi){cout<<"Bodya"<<endl;}
+      if(A<Bi){cout<<"Sasha"<<endl;}
+    if(A==Bi){cout<<"Draw"<<endl;}
+   
+}
 
 
 int32_t main()
 {
-    string=''"Flow Duration","Total Fwd Packets",   "Total Backward Packets","Total Length of Fwd Packets","Total Length of Bwd Packets","Fwd Packet Length Max","Fwd Packet Length Min",
-   "Fwd Packet Length Mean" ,"Fwd Packet Length Std","Bwd Packet Length Max","Bwd Packet Length Min","Bwd Packet Length Mean","Bwd Packet Length Std",
-   "Flow Bytes/s","Flow Packets/s","Flow IAT Mean","Flow IAT Std","Flow IAT Max","Flow IAT Min","Fwd IAT Total","Fwd IAT Mean","Fwd IAT Std","Fwd IAT Max",
-   "Fwd IAT Min","Bwd IAT Total","Bwd IAT Mean","Bwd IAT Std","Bwd IAT Max","Bwd IAT Min","Fwd PSH Flags","Bwd PSH Flags","Fwd URG Flags","Bwd URG Flags",
-   "Fwd Header Length","Bwd Header Length","Fwd Packets/s","Bwd Packets/s","Min Packet Length","Max Packet Length","Packet Length Mean","Packet Length Std",
-   "Packet Length Variance","FIN Flag Count","SYN Flag Count","RST Flag Count","PSH Flag Count","ACK Flag Count","URG Flag Count","CWE Flag Count",
-   "ECE Flag Count","Down/Up Ratio","Average Packet Size","Avg Fwd Segment Size","Avg Bwd Segment Size","Fwd Avg Bytes/Bulk",
-   "Fwd Avg Packets/Bulk","Fwd Avg Bulk Rate","Bwd Avg Bytes/Bulk","Bwd Avg Packets/Bulk","Bwd Avg Bulk Rate","Subflow Fwd Packets","Subflow Fwd Bytes",
-   "Subflow Bwd Packets","Subflow Bwd Bytes","Init_Win_bytes_forward","Init_Win_bytes_backward","act_data_pkt_fwd",
-   "min_seg_size_forward","Active Mean","Active Std","Active Max","Active Min",
-    "Idle Mean","Idle Std","Idle Max", "Idle Min","Label"'';
-
+    fastio()
+    #ifndef ONLINE_JUDGE
+        freopen("Error.txt","w",stderr);
+    #endif
+    //hello baccho ,code krlo
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
+    return 0;
 }

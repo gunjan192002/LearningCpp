@@ -1,48 +1,53 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
-
+#include <string>
+#include <cstring>
 using namespace std;
 
-int main() {
-    int t;
-    cin >> t;
+class Solution {
+public:
+    int minimumOperationsToMakeEqual(int x, int y) {
+   
+    int ans = 0;
+    map<int, int> Traveled;
+ queue<int> qu;
+    qu.push(x);
+        
+    while (qu.size()) {
+        int sz = qu.size();
 
-    while (t--) {
-        int n;
-        cin >> n;
+        for (int j = 0; j < sz; j++) {
+            int k = qu.front();
+            qu.pop();
 
-        vector<int> a(n);
-        for (int i = 0; i < n; ++i) {
-            cin >> a[i];
-        }
+            if (k > 1e4 or k < 0) continue;
 
-        // Process each prefix of the array
-        for (int k = 1; k <= n; ++k) {
-            vector<int> prefix(a.begin(), a.begin() + k);
-            sort(prefix.begin(), prefix.end());
+            if (k == y) return ans;
 
-            int masha = 0, olya = 0;
-            bool mashaTurn = true;
-
-            while (!prefix.empty()) {
-                if (mashaTurn) {
-                    masha += prefix.back();
-                } else {
-                    olya += prefix.back();
-                }
-
-                prefix.pop_back();
-                if (!prefix.empty()) {
-                    mashaTurn = !mashaTurn;
-                }
+            if (k % 11 == 0 and Traveled[k / 11] == 0) {
+                Traveled[k / 11] = 1;
+                qu.push(k / 11);
             }
 
-            cout << (masha - olya) << " ";
+            if (k % 5 == 0 and Traveled[k / 5] == 0) {
+                Traveled[k / 5] = 1;
+                qu.push(k / 5);
+            }
+
+            if (k > 0 and Traveled[k - 1] == 0) {
+                Traveled[k - 1] = 1;
+                qu.push(k - 1);
+            }
+
+            if (Traveled[k + 1] == 0) {
+                Traveled[k + 1] = 1;
+                qu.push(k + 1);
+            }
         }
 
-        cout << endl;
+        ans++;
     }
 
-    return 0;
+    return ans;
 }
+
+};
