@@ -1,4 +1,4 @@
-// 2024-05-21 08:40:11
+// 2024-06-01 14:56:28
 // GUNJAN AGRWAL
 // Linkedin: https://www.linkedin.com/in/gunjan-agrawal-537929229/
 // Codeforces: https://codeforces.com/profile/Doby_Deol
@@ -44,9 +44,12 @@ using namespace std;
 #define COUNT(x,u) count(all(x), u)
 #define B break
 #define C continue
-//#define py cout<<"YES"<<endl
-//#define pn cout<<"NO"<<endl
-//#define pm cout<<"-1"<<endl
+#define SetBit(x, k) (x |= (1LL << k))
+#define ClearBit(x, k) (x &= ~(1LL << k))
+#define CheckBit(x, k) ((x & (1LL << k)) > 0 ? 1 : 0)
+#define py cout<<"YES"<<endl
+#define pn cout<<"NO"<<endl
+#define pm cout<<"-1"<<endl
 //#define ps(x,y) fixed<<setprecision(y)<<x
 
 //Typedef
@@ -82,10 +85,65 @@ ll modinv(ll p,ll q){ll ex;ex=M-2;while (ex) {if (ex & 1) {p = (p * q) % M;}q = 
 
 void solve()
 {
-    int a=3;
-    float n=5;
-    cout<<typeid(a*n).name()<<endl;
+    int n, m;cin>>n>>m;
+    vector<vector<int>> a(n,vector<int>(m));
+     vector<vector<int>> ans(n,vector<int>(m,1));
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            cin>>a[i][j];
+        }
+    }
+   for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            if(a[i][j]==0)
+            {
+                for(int k=0;k<n;k++)
+                {
+                    ans[k][j]=0;
+                }
+
+                for(int k=0;k<m;k++)
+                {
+                    ans[i][k]=0;
+                }
+            }
+        }
+    } 
+     for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+                int l=0;
+                for(int k=0;k<n;k++)
+                {
+                   l=l| ans[k][j];
+                }
+
+                for(int k=0;k<m;k++)
+                {
+                    l=l|ans[i][k];
+                }
+                if(a[i][j]!=l)
+                {
+                    pn;return;
+                }
+        }
+    }
+   py;
+ for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+              cout<<ans[i][j]<<" ";
+        }
+        cout<<endl;
+    }
 }
+
 
 
 int32_t main()
@@ -95,8 +153,7 @@ int32_t main()
         freopen("Error.txt","w",stderr);
     #endif
     //hello baccho ,code krlo
-    int t;
-    cin>>t;
+    int t=1;
     while(t--)
     {
     solve();

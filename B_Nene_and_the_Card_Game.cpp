@@ -1,4 +1,4 @@
-// 2024-05-21 08:40:11
+// 2024-05-28 17:04:50
 // GUNJAN AGRWAL
 // Linkedin: https://www.linkedin.com/in/gunjan-agrawal-537929229/
 // Codeforces: https://codeforces.com/profile/Doby_Deol
@@ -44,9 +44,12 @@ using namespace std;
 #define COUNT(x,u) count(all(x), u)
 #define B break
 #define C continue
-//#define py cout<<"YES"<<endl
-//#define pn cout<<"NO"<<endl
-//#define pm cout<<"-1"<<endl
+#define SetBit(x, k) (x |= (1LL << k))
+#define ClearBit(x, k) (x &= ~(1LL << k))
+#define CheckBit(x, k) ((x & (1LL << k)) > 0 ? 1 : 0)
+#define py cout<<"YES"<<endl
+#define pn cout<<"NO"<<endl
+#define pm cout<<"-1"<<endl
 //#define ps(x,y) fixed<<setprecision(y)<<x
 
 //Typedef
@@ -82,9 +85,19 @@ ll modinv(ll p,ll q){ll ex;ex=M-2;while (ex) {if (ex & 1) {p = (p * q) % M;}q = 
 
 void solve()
 {
-    int a=3;
-    float n=5;
-    cout<<typeid(a*n).name()<<endl;
+    int n;cin>>n;
+    vi a(n,0);
+    for(int i=0;i<n;i++)
+    {
+        int x;cin>>x;
+        a[x-1]++;
+    }
+    int ans=0;
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]==2){ans++;}
+    }
+    cout<<ans<<endl;
 }
 
 

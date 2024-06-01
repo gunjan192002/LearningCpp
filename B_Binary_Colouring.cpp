@@ -1,4 +1,4 @@
-// 2024-05-21 08:40:11
+// 2024-05-27 22:31:54
 // GUNJAN AGRWAL
 // Linkedin: https://www.linkedin.com/in/gunjan-agrawal-537929229/
 // Codeforces: https://codeforces.com/profile/Doby_Deol
@@ -44,9 +44,12 @@ using namespace std;
 #define COUNT(x,u) count(all(x), u)
 #define B break
 #define C continue
-//#define py cout<<"YES"<<endl
-//#define pn cout<<"NO"<<endl
-//#define pm cout<<"-1"<<endl
+#define SetBit(x, k) (x |= (1LL << k))
+#define ClearBit(x, k) (x &= ~(1LL << k))
+#define CheckBit(x, k) ((x & (1LL << k)) > 0 ? 1 : 0)
+#define py cout<<"YES"<<endl
+#define pn cout<<"NO"<<endl
+#define pm cout<<"-1"<<endl
 //#define ps(x,y) fixed<<setprecision(y)<<x
 
 //Typedef
@@ -82,9 +85,39 @@ ll modinv(ll p,ll q){ll ex;ex=M-2;while (ex) {if (ex & 1) {p = (p * q) % M;}q = 
 
 void solve()
 {
-    int a=3;
-    float n=5;
-    cout<<typeid(a*n).name()<<endl;
+    int n;cin>>n;
+    vector<int> temp;
+  
+    while(n!=0)
+    {
+        temp.push_back(n&1);
+        n=n>>1;
+    }
+    vector<int> ans;
+    n=temp.size();
+    for(int i=0;i<n-1;i++)
+    {
+         
+        {
+            ans.push_back(1);
+        }
+        if(temp[i]==1&&temp[i]==temp[i+1])
+        {
+            ans.push_back(-1);
+            temp[i+1]+=1;
+        }
+       if(temp[i]==2){ans.push_back(0);temp[i+1]+=1;}
+       if(temp[i]==0){ans.push_back(0);}
+    }
+    if(temp[n-1]==1){ans.push_back(1);}
+    if(temp[n-1]==2){ans.push_back(0);ans.push_back(1);}
+    if(temp[n-1]==0){ans.push_back(0);}
+    cout<<ans.size()<<endl;
+    for(int i=0;i<ans.size();i++)
+    {
+        cout<<ans[i]<<" ";
+        }
+        cout<<endl;
 }
 
 

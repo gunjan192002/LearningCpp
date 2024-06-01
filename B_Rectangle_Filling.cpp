@@ -1,4 +1,4 @@
-// 2024-05-21 08:40:11
+// 2024-05-23 14:18:31
 // GUNJAN AGRWAL
 // Linkedin: https://www.linkedin.com/in/gunjan-agrawal-537929229/
 // Codeforces: https://codeforces.com/profile/Doby_Deol
@@ -82,10 +82,52 @@ ll modinv(ll p,ll q){ll ex;ex=M-2;while (ex) {if (ex & 1) {p = (p * q) % M;}q = 
 
 void solve()
 {
-    int a=3;
-    float n=5;
-    cout<<typeid(a*n).name()<<endl;
+    int n,m;cin>>n>>m;
+    vector<vector<char>>temp(n,vector<char>(m));
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            cin>>temp[i][j];
+        }
+    }
+    int ans1=0,ans2=0;
+
+    for(int i=0;i<n;i++)
+    {
+        if(temp[i][0]=='W'){ans1=1;}
+         if(temp[i][m-1]=='W'){ans2=1;}
+    }
+  
+
+   int  ans3=0,ans4=0;
+
+    for(int i=0;i<m;i++)
+    {
+        if(temp[0][i]=='W'){ans3=1;}
+         if(temp[n-1][i]=='W'){ans4=1;}
+    }
+   if(ans1&&ans2&&ans3&&ans4){cout<<"YES"<<endl;return;}
+    // ---------------------------
+    ans1=0,ans2=0;
+
+    for(int i=0;i<n;i++)
+    {
+        if(temp[i][0]=='B'){ans1=1;}
+         if(temp[i][m-1]=='B'){ans2=1;}
+    }
+    
+     ans3=0,ans4=0;
+
+    for(int i=0;i<m;i++)
+    {
+        if(temp[0][i]=='B'){ans3=1;}
+         if(temp[n-1][i]=='B'){ans4=1;}
+    }
+    if(ans1&&ans2&&ans3&&ans4){cout<<"YES"<<endl;return;}
+    cout<<"NO"<<endl;return;
 }
+
 
 
 int32_t main()

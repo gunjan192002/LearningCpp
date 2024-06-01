@@ -1,4 +1,4 @@
-// 2024-05-21 08:40:11
+// 2024-05-24 16:05:24
 // GUNJAN AGRWAL
 // Linkedin: https://www.linkedin.com/in/gunjan-agrawal-537929229/
 // Codeforces: https://codeforces.com/profile/Doby_Deol
@@ -44,9 +44,12 @@ using namespace std;
 #define COUNT(x,u) count(all(x), u)
 #define B break
 #define C continue
-//#define py cout<<"YES"<<endl
-//#define pn cout<<"NO"<<endl
-//#define pm cout<<"-1"<<endl
+#define SetBit(x, k) (x |= (1LL << k))
+#define ClearBit(x, k) (x &= ~(1LL << k))
+#define CheckBit(x, k) ((x & (1LL << k)) > 0 ? 1 : 0)
+#define py cout<<"YES"<<endl
+#define pn cout<<"NO"<<endl
+#define pm cout<<"-1"<<endl
 //#define ps(x,y) fixed<<setprecision(y)<<x
 
 //Typedef
@@ -82,9 +85,40 @@ ll modinv(ll p,ll q){ll ex;ex=M-2;while (ex) {if (ex & 1) {p = (p * q) % M;}q = 
 
 void solve()
 {
-    int a=3;
-    float n=5;
-    cout<<typeid(a*n).name()<<endl;
+    ll n,k;  
+    cin>>n>>k;
+    vector<ll> a(n);
+     vector<pair<ll,ll>> temp;
+    for(int i=0;i<n;i++){
+             cin>>a[i];
+            temp.push_back({a[i],i});}
+
+          sort(temp.begin(),temp.end());
+        //   for(int i=0;i<n;i++)
+        //   {
+        //     cout<<temp[i].first<<" "<<temp[i].second<<endl;
+        //   }
+        ll x= a[k-1];
+        ll ans=n;
+        for(int i=0;i<n;i++)
+        {
+
+            if(temp[i].first>x)
+            {
+                // cout<<"hello"<<endl;
+                ans=min(ans,temp[i].second);
+            }
+        }
+       if(ans==0)
+       {
+        if(a[1]<x){cout<<1;}
+        else{cout<<0;}
+        return;
+       }
+       if(k>ans){cout<<ans-2<endl;return;}
+       else {
+        cout<<ans<<endl;
+       }
 }
 
 

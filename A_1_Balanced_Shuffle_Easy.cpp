@@ -1,4 +1,4 @@
-// 2024-05-21 08:40:11
+// 2024-05-21 03:57:52
 // GUNJAN AGRWAL
 // Linkedin: https://www.linkedin.com/in/gunjan-agrawal-537929229/
 // Codeforces: https://codeforces.com/profile/Doby_Deol
@@ -79,12 +79,42 @@ ll lcm(ll a, ll b){return (a/gcd(a,b)*b);}
 ll moduloMultiplication(ll a,ll b,ll mod){ll res = 0;a %= mod;while (b){if (b & 1)res = (res + a) % mod;b >>= 1;}return res;}
 ll powermod(ll x, ll y, ll p){ll res = 1;x = x % p;if (x == 0) return 0;while (y > 0){if (y & 1)res = (res*x) % p;y = y>>1;x = (x*x) % p;}return res;}
 ll modinv(ll p,ll q){ll ex;ex=M-2;while (ex) {if (ex & 1) {p = (p * q) % M;}q = (q * q) % M;ex>>= 1;}return p;}
+auto comparator = [](const pair<int, pair<int, char>>& a, const pair<int, pair<int, char>>& b) {
+        if (a.first == b.first) {
+            return a.second.first > b.second.first; // Decreasing order of pair.second.first
+        }
+        return a.first < b.first;
+    };
 
 void solve()
 {
-    int a=3;
-    float n=5;
-    cout<<typeid(a*n).name()<<endl;
+    string ans1="",temp;
+    int ans=0;
+    cin>>temp;
+    int n=temp.size();
+    vector<pair<int,pair<int,char>>> vecpair;
+   
+    for(int i=0;i<n;i++)
+    {
+        vecpair.push_back({ans,{i,temp[i]}});
+        // cout<<ans;
+        if(temp[i]=='(')
+        {
+            ans+=1;
+        }
+        else
+        {
+            ans=ans-1;
+        }
+       
+    }
+    sort(vecpair.begin(),vecpair.end(), comparator);
+
+    for(int i=0;i<n;i++)
+    {
+        cout<<vecpair[i].second.second;
+    }
+    cout<<endl;
 }
 
 
@@ -95,8 +125,7 @@ int32_t main()
         freopen("Error.txt","w",stderr);
     #endif
     //hello baccho ,code krlo
-    int t;
-    cin>>t;
+    int t=1;
     while(t--)
     {
     solve();

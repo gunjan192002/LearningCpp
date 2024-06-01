@@ -1,4 +1,4 @@
-// 2024-05-21 08:40:11
+// 2024-05-25 16:38:17
 // GUNJAN AGRWAL
 // Linkedin: https://www.linkedin.com/in/gunjan-agrawal-537929229/
 // Codeforces: https://codeforces.com/profile/Doby_Deol
@@ -44,9 +44,12 @@ using namespace std;
 #define COUNT(x,u) count(all(x), u)
 #define B break
 #define C continue
-//#define py cout<<"YES"<<endl
-//#define pn cout<<"NO"<<endl
-//#define pm cout<<"-1"<<endl
+#define SetBit(x, k) (x |= (1LL << k))
+#define ClearBit(x, k) (x &= ~(1LL << k))
+#define CheckBit(x, k) ((x & (1LL << k)) > 0 ? 1 : 0)
+#define py cout<<"YES"<<endl
+#define pn cout<<"NO"<<endl
+#define pm cout<<"-1"<<endl
 //#define ps(x,y) fixed<<setprecision(y)<<x
 
 //Typedef
@@ -82,9 +85,49 @@ ll modinv(ll p,ll q){ll ex;ex=M-2;while (ex) {if (ex & 1) {p = (p * q) % M;}q = 
 
 void solve()
 {
-    int a=3;
-    float n=5;
-    cout<<typeid(a*n).name()<<endl;
+    int l;
+    cin>>l;
+    vi a;
+    for(int i=0;i<l;i++)
+    {   
+        int x;cin>>x;
+        if(x==0){continue;}
+        else{
+            a.push_back(x);
+        }
+    }
+    int n=a.size();
+    if(n==0||l==1){cout<<1<<endl;return;}
+    if(n==1){cout<<2<<endl;return;}
+    bool flag=0;
+    for(int i=0;i<n-1;i++)
+    {
+        if(a[i]!=a[i+1]){flag=1;}
+    }
+    if(flag==0){cout<<1<<endl;return;}
+        int ans=0; 
+        for(int i=0;i<n-1;)
+        {   //Login for descending
+            if(a[i]>=a[i+1])
+            {   
+                ans++;
+                while(i<n-1&&a[i]>=a[i+1])
+                {   
+                    ++i;
+                }
+            }
+            //logic for ascending
+            else 
+            {
+                ans++;
+                while(i<n-1&&a[i]<=a[i+1])
+                {
+                    ++i;
+                }
+            }
+        }
+       ans++;
+        cout<<ans<<endl;
 }
 
 

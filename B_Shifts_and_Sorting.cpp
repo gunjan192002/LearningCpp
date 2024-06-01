@@ -1,4 +1,4 @@
-// 2024-05-21 08:40:11
+// 2024-05-23 09:39:01
 // GUNJAN AGRWAL
 // Linkedin: https://www.linkedin.com/in/gunjan-agrawal-537929229/
 // Codeforces: https://codeforces.com/profile/Doby_Deol
@@ -82,9 +82,20 @@ ll modinv(ll p,ll q){ll ex;ex=M-2;while (ex) {if (ex & 1) {p = (p * q) % M;}q = 
 
 void solve()
 {
-    int a=3;
-    float n=5;
-    cout<<typeid(a*n).name()<<endl;
+  
+     string temp;cin>>temp;int n=temp.size();
+     long long  ans=0;
+     int prev=0;
+     while(temp[prev]=='0'){prev++;}
+    //  cout<<prev<<endl;
+     for(int i=prev+1;i<n;i++){
+        if(temp[i]=='0'){
+            ans+=i-prev+1;
+            prev++;
+            // cout<<"hello"<<endl;
+            }
+     }
+     cout<<ans<<endl;
 }
 
 

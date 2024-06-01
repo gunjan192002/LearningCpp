@@ -1,4 +1,4 @@
-// 2024-05-21 08:40:11
+// 2024-05-30 20:28:23
 // GUNJAN AGRWAL
 // Linkedin: https://www.linkedin.com/in/gunjan-agrawal-537929229/
 // Codeforces: https://codeforces.com/profile/Doby_Deol
@@ -44,9 +44,12 @@ using namespace std;
 #define COUNT(x,u) count(all(x), u)
 #define B break
 #define C continue
-//#define py cout<<"YES"<<endl
-//#define pn cout<<"NO"<<endl
-//#define pm cout<<"-1"<<endl
+#define SetBit(x, k) (x |= (1LL << k))
+#define ClearBit(x, k) (x &= ~(1LL << k))
+#define CheckBit(x, k) ((x & (1LL << k)) > 0 ? 1 : 0)
+#define py cout<<"YES"<<endl
+#define pn cout<<"NO"<<endl
+#define pm cout<<"-1"<<endl
 //#define ps(x,y) fixed<<setprecision(y)<<x
 
 //Typedef
@@ -82,9 +85,37 @@ ll modinv(ll p,ll q){ll ex;ex=M-2;while (ex) {if (ex & 1) {p = (p * q) % M;}q = 
 
 void solve()
 {
-    int a=3;
-    float n=5;
-    cout<<typeid(a*n).name()<<endl;
+    int n;
+    cin>>n;
+  vector<ll>a(n);
+   vector<ll> b(n+1);
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    for(int i=0;i<n+1;i++)
+    {
+        cin>>b[i];
+    }
+    int k=b[n];
+    ll ans=0;
+    ll z=M+7;
+    ll indx=-1;
+    
+  for(int i=0;i<n;i++)
+  {
+    ans+=abs(a[i]-b[i]);
+    if(abs(a[i]-k)+abs(k-b[i])<z)
+    {
+        z=abs(a[i]-k)+abs(k-b[i]);indx=i;
+        // cout<<z<<endl;
+    }
+
+  }
+    // cout<<indx<<" "<<z<<endl;
+//   if(ans+z-abs(a[indx]-b[indx])==0){cout<<1<<endl;return;}
+    cout<<ans+z-abs(a[indx]-b[indx])+1<<endl;
+    
 }
 
 
